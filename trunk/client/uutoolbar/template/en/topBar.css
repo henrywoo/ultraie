@@ -1,0 +1,666 @@
+#adb_topBar_all{
+    font-family: "Lucida Grande",Arial,sans-serif !important;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+#adb_topBar{
+    background: url( http://s3.amazonaws.com/blueorganizer/images/topbar/bg_horiz.jpg ) repeat-x;
+    height: 70px;
+    z-index:1;
+}
+
+#adb_topBar div{
+    font-family: "Lucida Grande",Arial,sans-serif !important;
+}
+
+#adb_topBar_cover{
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:70px;
+    z-index:2;
+}
+#adb_content_cover {
+    position :absolute;
+    left: 0px;
+    top: 86px;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: .50;
+    z-index: 99999;
+}
+#adb_topBar_content{
+    width: 1000px;
+}
+
+#adb_topBar a {
+	color: #29aadf;
+    cursor: pointer;
+    text-decoration:none;
+}
+
+#adb_topBar a:hover {
+    text-decoration:underline;
+}
+
+#adb_profile{
+    width:90px;
+}
+
+#adb_profile:hover{
+    text-decoration:underline;
+}
+
+#adb_you{
+    position:relative;
+}
+
+#adb_you img{
+    position:absolute;
+    left:0px;
+}
+
+#adb_message {
+    float:left;
+    margin-left:10px;
+    margin-top:20px;
+    color: #666;
+    font-size: 12px;
+    line-height: 14px;
+    text-align:left;
+}
+
+.adb_message_link {
+    cursor: pointer;
+    color: #3399cc;
+}
+
+#adb_follow_tip_img{
+    float:left;
+    margin:20px 10px 20px 20px;
+}
+
+#adb_follow_tip{
+    float:left;
+    width:275px;
+    font-size: 14px;
+    margin:18px 0 0 0;
+    text-align:left;
+}
+
+#adb_follow_tip_link:hover, #adb_invite_tip_link:hover, #adb_alert_tip_link:hover{
+    text-decoration:underline;
+}
+
+#adb_invite_tip_img, #adb_alert_img{
+    float:left;
+    margin:20px 10px;
+}
+
+#adb_follow, #adb_invite{
+    display:none;
+}
+
+#adb_invite_tip{
+    float:left;
+    font-size: 14px;
+    width:125px;
+    margin: 8px 5px 8px 0pt;
+    text-align:left;
+}
+
+#adb_alert_tip{
+    float:left;
+    width:600px;
+    margin:15px 5px 15px 0pt;
+}
+
+
+/* start common */
+.adb_primary{
+    cursor:pointer;
+    text-align:center;
+    float:left;
+    margin:4px 0 0 15px;
+    background-image:url(http://s3.amazonaws.com/blueorganizer/images/topbar/primary.jpg);
+    width:59px;
+    height:59px;
+}
+
+.adb_primary_image{
+    display:inline;
+    max-height:49px;
+    max-width:49px;
+    margin:5px;
+}
+
+.adb_divider{
+    margin:0 14px;
+    float:left;
+}
+
+.adb_button {
+    float:left;
+    margin-right:5px;
+    margin-top:4px;
+    cursor:pointer;
+    width:59px;
+    height:59px;
+}
+
+.adb_model_icon{
+    margin-right:2px;
+    cursor:pointer;
+    display:inline;
+}
+
+.adb_model_icon_off{
+    margin-right:2px;
+}
+/* end common */
+
+/* start faceroll */
+.adb_stream_text{
+    float:left;
+    font-weight:bold;
+    width:60px;
+    margin-right:7px;
+    margin-top:18px;
+    color: #3399cc;
+    font-size:12px;
+    line-height:13px;
+    text-align:right;
+    cursor:pointer;
+}
+
+.adb_stream_value{
+    font-size:24px;
+    margin-bottom:5px;
+    color:#3399CC;
+    line-height:13px;
+    text-align:right;
+}
+
+.adb_faceroll {
+    float:left;
+    width: 50px;
+    height: 50px;
+    margin: 5px 5px 0 0;
+    cursor: pointer;
+    background-color:white;
+    text-align: center;
+    overflow:hidden;
+}
+
+.adb_faceroll_image{
+    height:50px;
+    display:inline;
+}
+
+.adb_border_me {
+    border: 2px solid #669900;
+}
+
+.adb_border_Comment, .adb_border_LikedComment{
+    border: 2px solid #FFCC33;
+}
+
+.adb_border_Liked{
+    border: 2px solid #46a5d8;
+}
+
+.adb_border_Looked{
+    border: 2px solid #CCCCCC;
+}
+
+#adb_recent:hover,#adb_friends:hover,#adb_favorite_things:hover,#adb_recent_things:hover{
+    text-decoration:underline;
+}
+/* end faceroll */
+
+/* start tips */
+.adb_tip{
+    padding: 10px;
+    background-color: white;
+    text-align:left;
+    color: #333;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.adb_tip_caret{
+    text-align: left;
+    position: relative;
+    z-index: 1410065407;
+    top: 4px;
+}                                                                                                  
+
+#adb_tip_caret_img{
+    display:block;
+    margin-left: 20px;
+    height:15px;
+    width:22px;
+}
+
+#adb_faceroll_tip {
+    font-family: "Lucida Grande",Arial,sans-serif !important;
+    font-size: 14px !important;
+    display:none;
+    position: absolute;
+    z-index: 1410065406;
+}
+
+#adb_faceroll_tip_caret{
+    display:block;
+}
+
+#adb_faceroll_message a{
+    cursor:pointer;
+    color: #29aadf;
+}
+
+#adb_faceroll_source{
+    cursor:pointer;
+    display:inline;
+    color: #29aadf;
+}
+
+#adb_faceroll_source:hover{
+    text-decoration:underline;
+}
+
+.adb_tip_border_me {
+    border: 4px solid #669900;
+}
+
+.adb_tip_border_Comment, .adb_tip_border_LikedComment{
+    border: 4px solid #FFCC33;
+}
+
+.adb_tip_border_Liked{
+    border: 4px solid #46a5d8;
+}
+
+.adb_tip_border_Looked{
+    border: 4px solid #CCCCCC;
+}
+
+.adb_tip_border_primary{
+    border: 4px solid #003366;
+}
+
+#adb_tip_buttons{
+    margin-top:10px;
+}
+
+.adb_tip_btn{
+    float:left;
+    text-transform:uppercase;
+    height:23px;
+    width:124px;
+    padding-top:4px;
+    cursor:pointer;
+    font-size:11px;
+    margin-right:1px;
+    text-decoration:underline;
+    text-align:center;
+    font-weight:bold;
+    color:white;
+}
+
+.adb_tip_btn_disabled{
+    float:left;
+    text-transform:uppercase;
+    height:23px;
+    width:124px;
+    padding-top:4px;
+    cursor:default;
+    opacity: 0.5;
+    font-size:11px;
+    margin-right:1px;
+    text-decoration:underline;
+    text-align:center;
+    font-weight:bold;
+    color:white;
+}
+
+#adb_faceroll_avatar{
+    width:160px;
+}
+
+#adb_faceroll_avatar:hover{
+    background-color:#9ad350;
+}
+
+.adb_tip_btn_Comment, .adb_tip_btn_LikedComment{
+    background-color: #FFCC33;
+}
+
+.adb_tip_btn_Comment_hover, .adb_tip_btn_LikedComment_hover{
+    background-color: #FFDF5E;
+}
+
+.adb_tip_btn_Liked{
+    background-color: #46a5d8;
+}
+
+.adb_tip_btn_Liked_hover{
+    background-color: #87c9ec;
+}
+
+.adb_tip_btn_Looked{
+    background-color: #666;
+}
+
+.adb_tip_btn_Looked_hover{
+    background-color: #999;
+}
+
+.adb_tip_btn_primary{
+    background-color: #003366;
+}
+
+.adb_tip_btn_primary_hover{
+    background-color: #5283a1;
+}
+
+.adb_tip_btn_me{
+    background-color: #669900;
+}
+
+.adb_tip_hide{
+    font-size:11px;
+    cursor:pointer;
+    float:right;
+    color:#CC3333;
+    text-decoration:underline;
+}
+
+.adb_tip_heart{
+    float:right;
+    width:31px;
+}
+
+#adb_faceroll_comment, .adb_faceroll_comment{
+    margin-top:5px;
+    background-color: #FFFFBE;
+    padding: 10px;
+    border: 1px solid #EBE03D;
+    min-height:27px;
+}
+
+#adb_faceroll_favicon {
+    float:right;
+    width: 16px;
+}
+
+#adb_faceroll_name {
+    font-weight:bold;
+    float:left;
+    margin-right:5px;
+}
+
+#adb_faceroll_lock{
+    margin: 5px 3px 0 3px;
+}
+
+#adb_faceroll_explore{
+    margin-top:10px;
+    font-weight: bold;
+    cursor:pointer;
+    font-size: 11px;
+    color: #29aadf;
+}
+
+#adb_faceroll_explore:hover{
+    text-decoration: underline;
+}
+
+#adb_comment {
+    font-family: "Lucida Grande",Arial,sans-serif !important;
+    font-size: 14px;
+    width: 278px;
+    display: none;
+    z-index: 1410065406;
+    position: absolute;
+}
+
+#adb_comment_ok:hover{
+    background-color:#f2cb32;
+}
+
+#adb_comment_cancel:hover{
+    background-color:#f2cb32;
+}
+
+#adb_charLimit_count{
+    float:right;
+}
+
+.adb_comment_label {
+    color: #666666;
+    font-weight: bold;
+    float:left;
+    font-size:14px;
+}
+
+#adb_comment_textarea, #post_comment_textarea{
+    margin-top:5px;
+    padding: 5px;
+    border: 1px solid #C8C8C8;
+    background-color: #F4F4F4;
+    color: #676767;
+    font-weight: bold;
+    font-family: "Lucida Grande",Arial,sans-serif;
+    height:100px;
+    width:238px;
+    font-size:16px !important;
+}
+
+#adb_comment_msg{
+    color:#990000;
+    text-align:center;
+}
+
+#adb_likes{
+    clear:both;
+    margin-top: 10px;
+}
+.adb_likes_text {
+    float:left;
+    font-weight:bold;
+    margin: 3px 3px 0 0;
+}
+/* end tips */
+
+/* start service tips */
+.adb_tip_button{
+    cursor:pointer;
+}
+
+#adb_service_tip_link_outer {
+    display: table;
+    height: 70px;
+    width: 90px;
+    float:left;
+    text-align:left;
+}
+
+#adb_service_tip_link{
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    line-height: 16px;
+}
+
+#adb_service_tip_link:hover{
+    text-decoration:underline;
+}
+
+#adb_service_tip_img{
+    float:left;
+    margin:20px 5px 0 0;
+}
+
+#adb_service_tip{
+    position: absolute;
+    z-index: 1410065406;
+}
+
+#adb_service_tip_title{
+    font-weight:bold;
+    color:#333;
+}
+
+#adb_service_add_btn{
+    width:175px;
+    margin-top:10px;
+
+}
+
+#adb_service_add_btn:hover{
+    background-color:#9ad350;
+}
+/* end service tips */
+
+/* start product walk/help */
+#adb_pw{
+    background: url( http://s3.amazonaws.com/blueorganizer/images/topbar/hb_bg_gray.gif ) repeat-x;
+    height:16px;
+}
+
+#adb_pw_content{
+    width:1000px;
+}
+.adb_pw_selected{
+    background: url(http://s3.amazonaws.com/blueorganizer/images/topbar/hb_bg_hilite.gif) repeat-x;
+    height:16px;
+    float:left;
+}
+
+.adb_pw_bg{
+    background: url(http://s3.amazonaws.com/blueorganizer/images/topbar/hb_bg_gray.gif) repeat-x;
+    height:16px;
+    float:left;
+}
+
+.adb_pw_content{
+    float:left;
+}
+
+.adb_pw_separator{
+    float:left;
+    width:2px;
+    height:16px;
+    background-image: url(http://s3.amazonaws.com/blueorganizer/images/topbar/hb_bg_separator.gif);
+    background-repeat: no-repeat;
+}
+
+#adb_pw_tip{
+    display:none;
+    position: absolute;
+    z-index: 1410065406;
+    top:83px;
+}
+#adb_pw_tip_content{
+    font-family: "Lucida Grande",Arial,sans-serif !important;
+}
+#adb_pw_tip_next{
+    color:#46a5d8;
+    float:right;
+    margin-top:5px;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:15px;
+}
+#adb_pw_tip_done{
+    font-size:12px;
+    color:#46a5d8;
+    margin-top:5px;
+    cursor:pointer;
+}
+#adb_pw_tip_next:hover,#adb_pw_tip_done:hover{
+    text-decoration:underline;
+}
+
+
+/* end product walk/help */
+
+/* start navigator */
+#adb_navigator{
+    background-image: url(http://s3.amazonaws.com/blueorganizer/images/navigator/pane_bg.gif);
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: 1410065405;
+    display: none;
+}
+
+#adb_navigator_iframe{
+    margin: 8px 6px 16px 7px;
+    width: 437px;
+    height: 465px;
+}
+
+#adb_navigator_close{
+    position: absolute;
+    top: 16px;
+    display:none;
+    right: 15px;
+    cursor:pointer;
+    width:23px;
+    height:21px;
+}
+/* end navigator */
+
+/* start SmartLink launchers */
+.adb_icon_launcher {
+    cursor: pointer;
+    border-width: 0px !important;
+    padding:0px !important;
+    margin: 0 0 0 4px !important;
+    float: none !important;
+    position: static !important;
+    display: inline !important;
+    width: 14px !important;
+    height: 14px !important;
+}
+
+#adb_sl_tooltip{
+  z-index: 1000;
+  position: absolute;
+  display:none;
+  margin: 0px;
+  padding:0px;
+}
+
+#adb_sl_tooltip_iframe{
+    margin:0px;
+    padding:0px;
+    background-color:transparent;
+}
+
+
+/* end SmartLink launchers */
+
+/*** twoCents ***/
+
+/* >20 */
+.charlimit_normal{
+    color: #666666;
+    font-weight: bold;
+}
+/* 1-20 */
+.charlimit_low{
+    color: #666666;
+    font-weight: bold;
+}
+/* <= 0 */
+.charlimit_over{
+    color: #990000;
+    font-weight: bold;
+}
+
+/*** End twoCents ***/

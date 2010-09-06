@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>Visit History</title>
+		<link rel="stylesheet" type="text/css" href="ultra://base.css" />
+	</head>
+	<style type="text/css">
+		#topborder{position:fixed;top:0;left:0;width:100%;height:10px;background-color:#c0dB5A;}
+		body{
+			text-align: center;
+			background:white url('http://home.sgchinese.com/templates/sg/images/bg.gif') top right;
+		}
+		#content{
+			margin: 20px 100px 100px 100px;
+			width: 80%;
+		}
+		#search{
+			margin: 5px 5px 5px 5px;
+			text-align: left;
+		}
+		/*pages*/
+		.pages{
+			margin:10px 0px 10px 0px;
+			font:11px/12px Tahoma;
+			text-align: left;
+		}
+		.pages *{
+			vertical-align:middle;
+		}
+		.pages a{
+			padding:1px 4px 1px 5px;
+			border:1px solid #C0DB5A;
+			background:#FFFFCC;
+			margin:0 1px 0 0;
+			text-align:center;
+			font:bold 12px;
+		}
+		.pages a:hover{
+			border:#659b28 1px solid;
+			background:#090909;
+			color:#E6E6E6;
+		}
+		.pages input{
+			margin-bottom:0px;border:1px solid #659b28;
+			height:15px;font:bold 12px/15px Verdana;padding-bottom:1px;padding-left:1px;margin-right:1px;color:#659b28;
+		}
+	</style>
+	<script>
+	function SearchHistory(){
+		alert("hello");
+		var title = document.getElementById('title');
+		var actionscript = "ultra://History/Search?title=" + title;
+		alert(actionscript);
+		document.form.action=actionscript;
+		document.form.submit();
+	}
+	</script>
+	<body>
+		<div id="topborder"></div>
+		<img src="ultra://trash.png" /> <a href="ultra://History">Surf History</a> |
+		<img src="ultra://monkey.gif" /> <a href="ultra://MediaResources">Media Detection</a>
+		<div id=content>
+			<div id=search>
+				<form name=search method=get action="ultra://History/Search">
+				<font size=4><b>Search History</b></font>
+				<br>
+				<SELECT name="sel">
+					<OPTION selected value="title">Title</OPTION>
+					<OPTION value="url">URL</OPTION>
+				</SELECT>
+
+				Title: <input type=text name="sword" size=50>
+				<!--input type=button value="Search" onClick="SearchHistory()"-->
+				<input type=submit value="Search">
+				</form>
+			</div>
+			<!--table align=center cellpadding=1 cellspacing=1 bgcolor=#FFFFCC style='BORDER:#FFB900 1px solid;'-->
+			<!-- History -->
+			<!--/table-->
+		</div>
+		<br>
+	</body>
+
+</html>
