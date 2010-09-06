@@ -1,0 +1,634 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>F:\6eeenetworks\client\uutoolbar\installer\setup_vis_eclipse.nsi</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css">
+body { background-color: #FFFFFF}
+pre { display: inline }
+a { color: #567599; text-decoration: none; }
+a:hover { background-color: #F4F4F4; color: #303030; text-decoration: underline}
+table.expand { float:right; border: 1px solid #567599; font-size: 1px; cursor: pointer; cursor: hand; }
+table.expand td { height: 4px; width: 4px; }
+table.expand td.top { border-bottom: 1px solid #567599; }
+table.expand  td.right { width: 4px; border-left: 1px solid #567599; }
+table.collapse { float:right; border: 1px solid #567599; font-size: 1px; cursor: pointer; cursor: hand; }
+table.collapse td { height: 4px; width: 4px; }
+table.collapse td.top { border-bottom: 1px solid #567599; }
+.hiddenRow { display:none; }
+#lineDiv { font-size: 1px; display: none; position: absolute; color: #567599; border-left: solid 1px; border-bottom: solid 1px; width: 1px; height: 1px; }
+.lineNum { text-align: right; color: #808000 }
+.ruler { background-color: #FFFFFF; text-align: right; border-right: 2px solid #D4D0C8 }
+</style>
+<script type="text/javascript" language="javascript">
+<!--
+document.write("<style type='text/css'>");
+if(navigator.userAgent.toLowerCase().indexOf("netscape6") >= 0) {
+  document.write("table.collapse td.right { width: 4px; }")
+}
+else {
+  document.write("table.collapse td.right { width: 5px; }")
+}
+document.write("</style>");
+if (!String.prototype.endsWith) {
+  String.prototype.endsWith = function(suffix) {
+    var startPos = this.length - suffix.length;
+    if (startPos < 0) {
+      return false;
+    }
+    return (this.lastIndexOf(suffix, startPos) == startPos);
+  };
+}
+function getObject(name)
+{
+  if(document.all) {
+    return document.all[name];
+  }
+  else {
+    return document.getElementById(name);
+  }
+}
+function showLine(trigger,end)
+{
+  if(trigger.className != "expand") {
+    var lineDiv = getObject("lineDiv");
+    var sec = getObject("line"+end);
+    if(sec && lineDiv) {
+      var triggerPos = getElementPosition(trigger);
+      var secPos = getElementPosition(sec);
+      if(secPos && triggerPos) {
+        lineDiv.style.left = triggerPos.left+triggerPos.width/2;
+        lineDiv.style.top = triggerPos.top+triggerPos.height;
+        lineDiv.style.width = triggerPos.width/2;
+        lineDiv.style.height = secPos.top+secPos.height/2-(triggerPos.top+triggerPos.height);
+        lineDiv.style.display = "block";
+      }
+    }
+  }
+}
+function hideLine()
+{
+  var lineDiv = getObject("lineDiv");
+  if(lineDiv) {
+    lineDiv.style.display = "none";
+  }
+}
+function toggle(trigger,start,end) 
+{
+  if(trigger) {
+    var i;
+    var sec;
+    var expand;
+    hideLine();
+    if(trigger.className == "expand") {
+      expand = true;
+      trigger.className = "collapse";
+    }
+    else {
+      expand = false;
+      trigger.className = "expand";
+    }
+    for(i=start; i<= end; i++) {
+      sec = getObject("line"+i);
+      if(sec) {
+        if(expand) {
+          if(sec.className == "hiddenRow") {
+            sec.className = "";
+          }
+          else if(sec.className.endsWith(" hiddenRow")) {
+            sec.className = sec.className.substr(0,sec.className.length-" hiddenRow".length);
+          }
+        }
+        else {
+          if(sec.className == "") {
+            sec.className = "hiddenRow";
+          }
+          else {
+            sec.className = sec.className + " hiddenRow";
+          }
+        }
+      }
+    }
+  }
+}
+function getElementPosition(elem){
+  var offsetLeft = 0;
+  var offsetTop =0;
+  var width = elem.offsetWidth;
+  var height = elem.offsetHeight;
+  while (elem){
+    offsetLeft += elem.offsetLeft;
+    offsetTop += elem.offsetTop;
+    elem = elem.offsetParent;
+  }
+  if (navigator.userAgent.indexOf('Mac') != -1 && typeof(document.body.leftMargin) !='undefined'){
+    offsetLeft += document.body.leftMargin;
+    offsetTop += document.body.topMargin;
+  }
+  return {left:offsetLeft,top:offsetTop, width:width, height: height};
+}
+//-->
+</script>
+</head>
+<body><div style="font-family: 'Calibri';font-size: 11pt;color: #000000;background-color: #FFFFFF;">
+<table cellpadding="0" cellspacing="0" border="0">
+<tr id="line1">
+<td class="lineNum"><pre>1</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="font-style: italic;color: #7F9FBF;">#</span> <span style="font-style: italic;color: #7F9FBF;">Auto-generated</span> <span style="font-style: italic;color: #7F9FBF;">by</span> <span style="font-style: italic;color: #7F9FBF;">EclipseNSIS</span> <span style="font-style: italic;color: #7F9FBF;">Script</span> <span style="font-style: italic;color: #7F9FBF;">Wizard</span></pre></td>
+</tr>
+<tr id="line2">
+<td class="lineNum"><pre>2</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="font-style: italic;color: #7F9FBF;">#</span> <span style="font-style: italic;color: #7F9FBF;">Feb</span> <span style="font-style: italic;color: #7F9FBF;">24,</span> <span style="font-style: italic;color: #7F9FBF;">2009</span> <span style="font-style: italic;color: #7F9FBF;">8:55:52</span> <span style="font-style: italic;color: #7F9FBF;">AM</span></pre></td>
+</tr>
+<tr id="line3">
+<td class="lineNum"><pre>3</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre></pre></td>
+</tr>
+<tr id="line4">
+<td class="lineNum"><pre>4</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="color: #800000;">Name</span> UltraIE</pre></td>
+</tr>
+<tr id="line5">
+<td class="lineNum"><pre>5</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre></pre></td>
+</tr>
+<tr id="line6">
+<td class="lineNum"><pre>6</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="color: #800000;">SetCompressor</span> <span style="color: #535300;">/SOLID</span> <span style="color: #480770;">lzma</span></pre></td>
+</tr>
+<tr id="line7">
+<td class="lineNum"><pre>7</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre></pre></td>
+</tr>
+<tr id="line8">
+<td class="lineNum"><pre>8</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="color: #800000;">RequestExecutionLevel</span> <span style="color: #480770;">admin</span></pre></td>
+</tr>
+<tr id="line9">
+<td class="lineNum"><pre>9</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre></pre></td>
+</tr>
+<tr id="line10">
+<td class="lineNum"><pre>10</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="font-style: italic;color: #7F9FBF;">#</span> <span style="font-style: italic;color: #7F9FBF;">General</span> <span style="font-style: italic;color: #7F9FBF;">Symbol</span> <span style="font-style: italic;color: #7F9FBF;">Definitions</span></pre></td>
+</tr>
+<tr id="line11">
+<td class="lineNum"><pre>11</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="color: #FF0000;">!define</span> REGKEY <span style="color: #004242;">"SOFTWARE\</span><span style="color: #61311E;">$(^Name)</span><span style="color: #004242;">"</span></pre></td>
+</tr>
+<tr id="line12">
+<td class="lineNum"><pre>12</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="color: #FF0000;">!define</span> VERSION <span style="color: #FF0000;">1</span>.<span style="color: #FF0000;">0</span></pre></td>
+</tr>
+<tr id="line13">
+<td class="lineNum"><pre>13</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="color: #FF0000;">!define</span> COMPANY <span style="color: #004242;">"6BeeNetworks</span> <span style="color: #004242;">Pte</span> <span style="color: #004242;">Ltd"</span></pre></td>
+</tr>
+<tr id="line14">
+<td class="lineNum"><pre>14</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="color: #FF0000;">!define</span> URL http://www.ultraie.com</pre></td>
+</tr>
+<tr id="line15">
+<td class="lineNum"><pre>15</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre></pre></td>
+</tr>
+<tr id="line16">
+<td class="lineNum"><pre>16</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="font-style: italic;color: #7F9FBF;">#</span> <span style="font-style: italic;color: #7F9FBF;">MUI</span> <span style="font-style: italic;color: #7F9FBF;">Symbol</span> <span style="font-style: italic;color: #7F9FBF;">Definitions</span></pre></td>
+</tr>
+<tr id="line17">
+<td class="lineNum"><pre>17</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="color: #FF0000;">!define</span> MUI_ICON UltraIE.ico</pre></td>
+</tr>
+<tr id="line18">
+<td class="lineNum"><pre>18</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="color: #FF0000;">!define</span> MUI_FINISHPAGE_NOAUTOCLOSE</pre></td>
+</tr>
+<tr id="line19">
+<td class="lineNum"><pre>19</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="color: #FF0000;">!define</span> MUI_LICENSEPAGE_RADIOBUTTONS</pre></td>
+</tr>
+<tr id="line20">
+<td class="lineNum"><pre>20</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="color: #FF0000;">!define</span> MUI_UNICON UltraIE2.ico</pre></td>
+</tr>
+<tr id="line21">
+<td class="lineNum"><pre>21</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="color: #FF0000;">!define</span> MUI_UNFINISHPAGE_NOAUTOCLOSE</pre></td>
+</tr>
+<tr id="line22">
+<td class="lineNum"><pre>22</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre></pre></td>
+</tr>
+<tr id="line23">
+<td class="lineNum"><pre>23</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="font-style: italic;color: #7F9FBF;">#</span> <span style="font-style: italic;color: #7F9FBF;">Included</span> <span style="font-style: italic;color: #7F9FBF;">files</span></pre></td>
+</tr>
+<tr id="line24">
+<td class="lineNum"><pre>24</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="color: #FF0000;">!include</span> Sections.nsh</pre></td>
+</tr>
+<tr id="line25">
+<td class="lineNum"><pre>25</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="color: #FF0000;">!include</span> MUI2.nsh</pre></td>
+</tr>
+<tr id="line26">
+<td class="lineNum"><pre>26</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre></pre></td>
+</tr>
+<tr id="line27">
+<td class="lineNum"><pre>27</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="font-style: italic;color: #7F9FBF;">#</span> <span style="font-style: italic;color: #7F9FBF;">Variables</span></pre></td>
+</tr>
+<tr id="line28">
+<td class="lineNum"><pre>28</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="color: #800000;">Var</span> StartMenuGroup</pre></td>
+</tr>
+<tr id="line29">
+<td class="lineNum"><pre>29</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre></pre></td>
+</tr>
+<tr id="line30">
+<td class="lineNum"><pre>30</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="font-style: italic;color: #7F9FBF;">#</span> <span style="font-style: italic;color: #7F9FBF;">Installer</span> <span style="font-style: italic;color: #7F9FBF;">pages</span></pre></td>
+</tr>
+<tr id="line31">
+<td class="lineNum"><pre>31</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="color: #FF0000;">!insertmacro</span> MUI_PAGE_WELCOME</pre></td>
+</tr>
+<tr id="line32">
+<td class="lineNum"><pre>32</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="color: #FF0000;">!insertmacro</span> MUI_PAGE_LICENSE <span style="color: #480770;">License</span>.txt</pre></td>
+</tr>
+<tr id="line33">
+<td class="lineNum"><pre>33</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="color: #FF0000;">!insertmacro</span> MUI_PAGE_DIRECTORY</pre></td>
+</tr>
+<tr id="line34">
+<td class="lineNum"><pre>34</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="color: #FF0000;">!insertmacro</span> MUI_PAGE_INSTFILES</pre></td>
+</tr>
+<tr id="line35">
+<td class="lineNum"><pre>35</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="color: #FF0000;">!insertmacro</span> MUI_PAGE_FINISH</pre></td>
+</tr>
+<tr id="line36">
+<td class="lineNum"><pre>36</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="color: #FF0000;">!insertmacro</span> MUI_UNPAGE_CONFIRM</pre></td>
+</tr>
+<tr id="line37">
+<td class="lineNum"><pre>37</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="color: #FF0000;">!insertmacro</span> MUI_UNPAGE_INSTFILES</pre></td>
+</tr>
+<tr id="line38">
+<td class="lineNum"><pre>38</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre></pre></td>
+</tr>
+<tr id="line39">
+<td class="lineNum"><pre>39</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="font-style: italic;color: #7F9FBF;">#</span> <span style="font-style: italic;color: #7F9FBF;">Installer</span> <span style="font-style: italic;color: #7F9FBF;">languages</span></pre></td>
+</tr>
+<tr id="line40">
+<td class="lineNum"><pre>40</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="color: #FF0000;">!insertmacro</span> MUI_LANGUAGE English</pre></td>
+</tr>
+<tr id="line41">
+<td class="lineNum"><pre>41</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="color: #FF0000;">!insertmacro</span> MUI_LANGUAGE SimpChinese</pre></td>
+</tr>
+<tr id="line42">
+<td class="lineNum"><pre>42</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre></pre></td>
+</tr>
+<tr id="line43">
+<td class="lineNum"><pre>43</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="font-style: italic;color: #7F9FBF;">#</span> <span style="font-style: italic;color: #7F9FBF;">Installer</span> <span style="font-style: italic;color: #7F9FBF;">attributes</span></pre></td>
+</tr>
+<tr id="line44">
+<td class="lineNum"><pre>44</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="color: #800000;">OutFile</span> UltraIE_Installer.exe</pre></td>
+</tr>
+<tr id="line45">
+<td class="lineNum"><pre>45</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="color: #800000;">InstallDir</span> <span style="color: #42532F;">$PROGRAMFILES</span>\<span style="color: #FF0000;">6</span>Beenetworks\UltraIE</pre></td>
+</tr>
+<tr id="line46">
+<td class="lineNum"><pre>46</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="color: #800000;">CRCCheck</span> <span style="color: #480770;">on</span></pre></td>
+</tr>
+<tr id="line47">
+<td class="lineNum"><pre>47</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="color: #800000;">XPStyle</span> <span style="color: #480770;">on</span></pre></td>
+</tr>
+<tr id="line48">
+<td class="lineNum"><pre>48</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="color: #800000;">ShowInstDetails</span> <span style="color: #480770;">show</span></pre></td>
+</tr>
+<tr id="line49">
+<td class="lineNum"><pre>49</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="color: #800000;">BGGradient</span> <span style="color: #FF0000;">000080</span> <span style="color: #FF0000;">000000</span> FFFFFF</pre></td>
+</tr>
+<tr id="line50">
+<td class="lineNum"><pre>50</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="color: #800000;">VIProductVersion</span> <span style="color: #FF0000;">1</span>.<span style="color: #FF0000;">0</span>.<span style="color: #FF0000;">0</span>.<span style="color: #FF0000;">0</span></pre></td>
+</tr>
+<tr id="line51">
+<td class="lineNum"><pre>51</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="color: #800000;">VIAddVersionKey</span> <span style="color: #535300;">/LANG</span>=<span style="color: #480770;">${LANG_ENGLISH}</span> ProductName UltraIE</pre></td>
+</tr>
+<tr id="line52">
+<td class="lineNum"><pre>52</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="color: #800000;">VIAddVersionKey</span> <span style="color: #535300;">/LANG</span>=<span style="color: #480770;">${LANG_ENGLISH}</span> ProductVersion <span style="color: #004242;">"</span><span style="color: #480770;">${VERSION}</span><span style="color: #004242;">"</span></pre></td>
+</tr>
+<tr id="line53">
+<td class="lineNum"><pre>53</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="color: #800000;">VIAddVersionKey</span> <span style="color: #535300;">/LANG</span>=<span style="color: #480770;">${LANG_ENGLISH}</span> CompanyName <span style="color: #004242;">"</span><span style="color: #480770;">${COMPANY}</span><span style="color: #004242;">"</span></pre></td>
+</tr>
+<tr id="line54">
+<td class="lineNum"><pre>54</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="color: #800000;">VIAddVersionKey</span> <span style="color: #535300;">/LANG</span>=<span style="color: #480770;">${LANG_ENGLISH}</span> CompanyWebsite <span style="color: #004242;">"</span><span style="color: #480770;">${URL}</span><span style="color: #004242;">"</span></pre></td>
+</tr>
+<tr id="line55">
+<td class="lineNum"><pre>55</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="color: #800000;">VIAddVersionKey</span> <span style="color: #535300;">/LANG</span>=<span style="color: #480770;">${LANG_ENGLISH}</span> FileVersion <span style="color: #004242;">"</span><span style="color: #480770;">${VERSION}</span><span style="color: #004242;">"</span></pre></td>
+</tr>
+<tr id="line56">
+<td class="lineNum"><pre>56</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="color: #800000;">VIAddVersionKey</span> <span style="color: #535300;">/LANG</span>=<span style="color: #480770;">${LANG_ENGLISH}</span> FileDescription <span style="color: #004242;">""</span></pre></td>
+</tr>
+<tr id="line57">
+<td class="lineNum"><pre>57</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="color: #800000;">VIAddVersionKey</span> <span style="color: #535300;">/LANG</span>=<span style="color: #480770;">${LANG_ENGLISH}</span> LegalCopyright <span style="color: #004242;">""</span></pre></td>
+</tr>
+<tr id="line58">
+<td class="lineNum"><pre>58</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="color: #800000;">InstallDirRegKey</span> <span style="color: #480770;">HKLM</span> <span style="color: #004242;">"</span><span style="color: #480770;">${REGKEY}</span><span style="color: #004242;">"</span> Path</pre></td>
+</tr>
+<tr id="line59">
+<td class="lineNum"><pre>59</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="color: #800000;">ShowUninstDetails</span> <span style="color: #480770;">show</span></pre></td>
+</tr>
+<tr id="line60">
+<td class="lineNum"><pre>60</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre></pre></td>
+</tr>
+<tr id="line61">
+<td class="lineNum"><pre>61</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="font-style: italic;color: #7F9FBF;">#</span> <span style="font-style: italic;color: #7F9FBF;">Installer</span> <span style="font-style: italic;color: #7F9FBF;">sections</span></pre></td>
+</tr>
+<tr id="line62">
+<td class="lineNum"><pre>62</pre></td><td class="ruler"><table cellpadding="0" cellspacing="0" border="0" class="collapse" onClick="toggle(this,63,83);" onMouseOver="showLine(this,83);" onMouseOut="hideLine();"><tr><td class="top">&nbsp;</td><td class="top right">&nbsp;</td></tr><tr><td>&nbsp;</td><td class="right">&nbsp;</td></tr></table></td><td><pre><span style="font-weight: bold;color: #643200;">Section</span> -Main SEC0000</pre></td>
+</tr>
+<tr id="line63">
+<td class="lineNum"><pre>63</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">SetOutPath</span> <span style="color: #42532F;">$INSTDIR</span></pre></td>
+</tr>
+<tr id="line64">
+<td class="lineNum"><pre>64</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #800000;">SetOverwrite</span> <span style="color: #480770;">on</span></pre></td>
+</tr>
+<tr id="line65">
+<td class="lineNum"><pre>65</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">File</span> ..\bin\release\utest.exe</pre></td>
+</tr>
+<tr id="line66">
+<td class="lineNum"><pre>66</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">File</span> ..\bin\release\uutoolbar.dll</pre></td>
+</tr>
+<tr id="line67">
+<td class="lineNum"><pre>67</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">File</span> ..\bin\release\<span style="color: #FF0000;">6</span>beeaudiorec.exe</pre></td>
+</tr>
+<tr id="line68">
+<td class="lineNum"><pre>68</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">File</span> ..\bin\release\<span style="color: #FF0000;">6</span>beecapvideo.exe</pre></td>
+</tr>
+<tr id="line69">
+<td class="lineNum"><pre>69</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">File</span> ..\bin\release\<span style="color: #FF0000;">6</span>beeclientmng.exe</pre></td>
+</tr>
+<tr id="line70">
+<td class="lineNum"><pre>70</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">File</span> ..\bin\release\<span style="color: #FF0000;">6</span>beeclientmnghook.dll</pre></td>
+</tr>
+<tr id="line71">
+<td class="lineNum"><pre>71</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">File</span> ..\bin\release\<span style="color: #FF0000;">6</span>beecommond.dll</pre></td>
+</tr>
+<tr id="line72">
+<td class="lineNum"><pre>72</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">File</span> ..\bin\release\<span style="color: #FF0000;">6</span>beehtmleditor.exe</pre></td>
+</tr>
+<tr id="line73">
+<td class="lineNum"><pre>73</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">File</span> ..\bin\release\<span style="color: #FF0000;">6</span>beemousehook.dll</pre></td>
+</tr>
+<tr id="line74">
+<td class="lineNum"><pre>74</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">File</span> ..\bin\release\<span style="color: #FF0000;">6</span>beeres.dll</pre></td>
+</tr>
+<tr id="line75">
+<td class="lineNum"><pre>75</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">File</span> ..\bin\release\<span style="color: #FF0000;">6</span>beeshellext.dll</pre></td>
+</tr>
+<tr id="line76">
+<td class="lineNum"><pre>76</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">File</span> ..\bin\release\<span style="color: #FF0000;">6</span>beeuploader.exe</pre></td>
+</tr>
+<tr id="line77">
+<td class="lineNum"><pre>77</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #800000;">SetOverwrite</span> <span style="color: #480770;">try</span></pre></td>
+</tr>
+<tr id="line78">
+<td class="lineNum"><pre>78</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">File</span> main.db</pre></td>
+</tr>
+<tr id="line79">
+<td class="lineNum"><pre>79</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #800000;">SetOverwrite</span> <span style="color: #480770;">on</span></pre></td>
+</tr>
+<tr id="line80">
+<td class="lineNum"><pre>80</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">File</span> <span style="color: #535300;">/r</span> ..\bin\template\*</pre></td>
+</tr>
+<tr id="line81">
+<td class="lineNum"><pre>81</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">File</span> <span style="color: #535300;">/r</span> ..\bin\release\plugin\*</pre></td>
+</tr>
+<tr id="line82">
+<td class="lineNum"><pre>82</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">WriteRegStr</span> <span style="color: #480770;">HKLM</span> <span style="color: #004242;">"</span><span style="color: #480770;">${REGKEY}</span><span style="color: #004242;">\Components"</span> Main <span style="color: #FF0000;">1</span></pre></td>
+</tr>
+<tr id="line83">
+<td class="lineNum"><pre>83</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="font-weight: bold;color: #643200;">SectionEnd</span></pre></td>
+</tr>
+<tr id="line84">
+<td class="lineNum"><pre>84</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre></pre></td>
+</tr>
+<tr id="line85">
+<td class="lineNum"><pre>85</pre></td><td class="ruler"><table cellpadding="0" cellspacing="0" border="0" class="collapse" onClick="toggle(this,86,99);" onMouseOver="showLine(this,99);" onMouseOut="hideLine();"><tr><td class="top">&nbsp;</td><td class="top right">&nbsp;</td></tr><tr><td>&nbsp;</td><td class="right">&nbsp;</td></tr></table></td><td><pre><span style="font-weight: bold;color: #643200;">Section</span> -post SEC0001</pre></td>
+</tr>
+<tr id="line86">
+<td class="lineNum"><pre>86</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">WriteRegStr</span> <span style="color: #480770;">HKLM</span> <span style="color: #004242;">"</span><span style="color: #480770;">${REGKEY}</span><span style="color: #004242;">"</span> Path <span style="color: #42532F;">$INSTDIR</span></pre></td>
+</tr>
+<tr id="line87">
+<td class="lineNum"><pre>87</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">SetOutPath</span> <span style="color: #42532F;">$INSTDIR</span></pre></td>
+</tr>
+<tr id="line88">
+<td class="lineNum"><pre>88</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">WriteUninstaller</span> <span style="color: #42532F;">$INSTDIR</span>\uninstall.exe</pre></td>
+</tr>
+<tr id="line89">
+<td class="lineNum"><pre>89</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">SetOutPath</span> <span style="color: #42532F;">$SMPROGRAMS</span>\<span style="color: #42532F;">$StartMenu</span>Group</pre></td>
+</tr>
+<tr id="line90">
+<td class="lineNum"><pre>90</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">CreateShortcut</span> <span style="color: #004242;">"</span><span style="color: #42532F;">$SMPROGRAMS</span><span style="color: #004242;">\</span><span style="color: #42532F;">$StartMenu</span><span style="color: #004242;">Group\</span><span style="color: #61311E;">$(^UninstallLink)</span><span style="color: #004242;">.lnk"</span> <span style="color: #42532F;">$INSTDIR</span>\uninstall.exe</pre></td>
+</tr>
+<tr id="line91">
+<td class="lineNum"><pre>91</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">WriteRegStr</span> <span style="color: #480770;">HKLM</span> <span style="color: #004242;">"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\</span><span style="color: #61311E;">$(^Name)</span><span style="color: #004242;">"</span> DisplayName <span style="color: #004242;">"</span><span style="color: #61311E;">$(^Name)</span><span style="color: #004242;">"</span></pre></td>
+</tr>
+<tr id="line92">
+<td class="lineNum"><pre>92</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">WriteRegStr</span> <span style="color: #480770;">HKLM</span> <span style="color: #004242;">"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\</span><span style="color: #61311E;">$(^Name)</span><span style="color: #004242;">"</span> DisplayVersion <span style="color: #004242;">"</span><span style="color: #480770;">${VERSION}</span><span style="color: #004242;">"</span></pre></td>
+</tr>
+<tr id="line93">
+<td class="lineNum"><pre>93</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">WriteRegStr</span> <span style="color: #480770;">HKLM</span> <span style="color: #004242;">"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\</span><span style="color: #61311E;">$(^Name)</span><span style="color: #004242;">"</span> Publisher <span style="color: #004242;">"</span><span style="color: #480770;">${COMPANY}</span><span style="color: #004242;">"</span></pre></td>
+</tr>
+<tr id="line94">
+<td class="lineNum"><pre>94</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">WriteRegStr</span> <span style="color: #480770;">HKLM</span> <span style="color: #004242;">"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\</span><span style="color: #61311E;">$(^Name)</span><span style="color: #004242;">"</span> URLInfoAbout <span style="color: #004242;">"</span><span style="color: #480770;">${URL}</span><span style="color: #004242;">"</span></pre></td>
+</tr>
+<tr id="line95">
+<td class="lineNum"><pre>95</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">WriteRegStr</span> <span style="color: #480770;">HKLM</span> <span style="color: #004242;">"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\</span><span style="color: #61311E;">$(^Name)</span><span style="color: #004242;">"</span> DisplayIcon <span style="color: #42532F;">$INSTDIR</span>\uninstall.exe</pre></td>
+</tr>
+<tr id="line96">
+<td class="lineNum"><pre>96</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">WriteRegStr</span> <span style="color: #480770;">HKLM</span> <span style="color: #004242;">"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\</span><span style="color: #61311E;">$(^Name)</span><span style="color: #004242;">"</span> UninstallString <span style="color: #42532F;">$INSTDIR</span>\uninstall.exe</pre></td>
+</tr>
+<tr id="line97">
+<td class="lineNum"><pre>97</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">WriteRegDWORD</span> <span style="color: #480770;">HKLM</span> <span style="color: #004242;">"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\</span><span style="color: #61311E;">$(^Name)</span><span style="color: #004242;">"</span> NoModify <span style="color: #FF0000;">1</span></pre></td>
+</tr>
+<tr id="line98">
+<td class="lineNum"><pre>98</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">WriteRegDWORD</span> <span style="color: #480770;">HKLM</span> <span style="color: #004242;">"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\</span><span style="color: #61311E;">$(^Name)</span><span style="color: #004242;">"</span> NoRepair <span style="color: #FF0000;">1</span></pre></td>
+</tr>
+<tr id="line99">
+<td class="lineNum"><pre>99</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="font-weight: bold;color: #643200;">SectionEnd</span></pre></td>
+</tr>
+<tr id="line100">
+<td class="lineNum"><pre>100</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre></pre></td>
+</tr>
+<tr id="line101">
+<td class="lineNum"><pre>101</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="font-style: italic;color: #7F9FBF;">#</span> <span style="font-style: italic;color: #7F9FBF;">Macro</span> <span style="font-style: italic;color: #7F9FBF;">for</span> <span style="font-style: italic;color: #7F9FBF;">selecting</span> <span style="font-style: italic;color: #7F9FBF;">uninstaller</span> <span style="font-style: italic;color: #7F9FBF;">sections</span></pre></td>
+</tr>
+<tr id="line102">
+<td class="lineNum"><pre>102</pre></td><td class="ruler"><table cellpadding="0" cellspacing="0" border="0" class="collapse" onClick="toggle(this,103,112);" onMouseOver="showLine(this,112);" onMouseOut="hideLine();"><tr><td class="top">&nbsp;</td><td class="top right">&nbsp;</td></tr><tr><td>&nbsp;</td><td class="right">&nbsp;</td></tr></table></td><td><pre><span style="color: #FF0000;">!macro</span> SELECT_UNSECTION SECTION_NAME UNSECTION_ID</pre></td>
+</tr>
+<tr id="line103">
+<td class="lineNum"><pre>103</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">Push</span> <span style="color: #42532F;">$R0</span></pre></td>
+</tr>
+<tr id="line104">
+<td class="lineNum"><pre>104</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">ReadRegStr</span> <span style="color: #42532F;">$R0</span> <span style="color: #480770;">HKLM</span> <span style="color: #004242;">"</span><span style="color: #480770;">${REGKEY}</span><span style="color: #004242;">\Components"</span> <span style="color: #004242;">"</span><span style="color: #480770;">${SECTION_NAME}</span><span style="color: #004242;">"</span></pre></td>
+</tr>
+<tr id="line105">
+<td class="lineNum"><pre>105</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">StrCmp</span> <span style="color: #42532F;">$R0</span> <span style="color: #FF0000;">1</span> <span style="color: #FF0000;">0</span> next<span style="color: #480770;">${UNSECTION_ID}</span></pre></td>
+</tr>
+<tr id="line106">
+<td class="lineNum"><pre>106</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #FF0000;">!insertmacro</span> SelectSection <span style="color: #004242;">"</span><span style="color: #480770;">${UNSECTION_ID}</span><span style="color: #004242;">"</span></pre></td>
+</tr>
+<tr id="line107">
+<td class="lineNum"><pre>107</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">GoTo</span> done<span style="color: #480770;">${UNSECTION_ID}</span></pre></td>
+</tr>
+<tr id="line108">
+<td class="lineNum"><pre>108</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>next<span style="color: #480770;">${UNSECTION_ID}</span>:</pre></td>
+</tr>
+<tr id="line109">
+<td class="lineNum"><pre>109</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #FF0000;">!insertmacro</span> UnselectSection <span style="color: #004242;">"</span><span style="color: #480770;">${UNSECTION_ID}</span><span style="color: #004242;">"</span></pre></td>
+</tr>
+<tr id="line110">
+<td class="lineNum"><pre>110</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>done<span style="color: #480770;">${UNSECTION_ID}</span>:</pre></td>
+</tr>
+<tr id="line111">
+<td class="lineNum"><pre>111</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">Pop</span> <span style="color: #42532F;">$R0</span></pre></td>
+</tr>
+<tr id="line112">
+<td class="lineNum"><pre>112</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="color: #FF0000;">!macroend</span></pre></td>
+</tr>
+<tr id="line113">
+<td class="lineNum"><pre>113</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre></pre></td>
+</tr>
+<tr id="line114">
+<td class="lineNum"><pre>114</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="font-style: italic;color: #7F9FBF;">#</span> <span style="font-style: italic;color: #7F9FBF;">Uninstaller</span> <span style="font-style: italic;color: #7F9FBF;">sections</span></pre></td>
+</tr>
+<tr id="line115">
+<td class="lineNum"><pre>115</pre></td><td class="ruler"><table cellpadding="0" cellspacing="0" border="0" class="collapse" onClick="toggle(this,116,132);" onMouseOver="showLine(this,132);" onMouseOut="hideLine();"><tr><td class="top">&nbsp;</td><td class="top right">&nbsp;</td></tr><tr><td>&nbsp;</td><td class="right">&nbsp;</td></tr></table></td><td><pre><span style="font-weight: bold;color: #643200;">Section</span> <span style="color: #535300;">/o</span> -un.Main UNSEC0000</pre></td>
+</tr>
+<tr id="line116">
+<td class="lineNum"><pre>116</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">RmDir</span> <span style="color: #535300;">/r</span> <span style="color: #535300;">/REBOOTOK</span> <span style="color: #42532F;">$INSTDIR</span></pre></td>
+</tr>
+<tr id="line117">
+<td class="lineNum"><pre>117</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">RmDir</span> <span style="color: #535300;">/r</span> <span style="color: #535300;">/REBOOTOK</span> <span style="color: #42532F;">$INSTDIR</span></pre></td>
+</tr>
+<tr id="line118">
+<td class="lineNum"><pre>118</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">Delete</span> <span style="color: #535300;">/REBOOTOK</span> <span style="color: #42532F;">$INSTDIR</span>\main.db</pre></td>
+</tr>
+<tr id="line119">
+<td class="lineNum"><pre>119</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">Delete</span> <span style="color: #535300;">/REBOOTOK</span> <span style="color: #42532F;">$INSTDIR</span>\<span style="color: #FF0000;">6</span>beeuploader.exe</pre></td>
+</tr>
+<tr id="line120">
+<td class="lineNum"><pre>120</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">Delete</span> <span style="color: #535300;">/REBOOTOK</span> <span style="color: #42532F;">$INSTDIR</span>\<span style="color: #FF0000;">6</span>beeshellext.dll</pre></td>
+</tr>
+<tr id="line121">
+<td class="lineNum"><pre>121</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">Delete</span> <span style="color: #535300;">/REBOOTOK</span> <span style="color: #42532F;">$INSTDIR</span>\<span style="color: #FF0000;">6</span>beeres.dll</pre></td>
+</tr>
+<tr id="line122">
+<td class="lineNum"><pre>122</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">Delete</span> <span style="color: #535300;">/REBOOTOK</span> <span style="color: #42532F;">$INSTDIR</span>\<span style="color: #FF0000;">6</span>beemousehook.dll</pre></td>
+</tr>
+<tr id="line123">
+<td class="lineNum"><pre>123</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">Delete</span> <span style="color: #535300;">/REBOOTOK</span> <span style="color: #42532F;">$INSTDIR</span>\<span style="color: #FF0000;">6</span>beehtmleditor.exe</pre></td>
+</tr>
+<tr id="line124">
+<td class="lineNum"><pre>124</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">Delete</span> <span style="color: #535300;">/REBOOTOK</span> <span style="color: #42532F;">$INSTDIR</span>\<span style="color: #FF0000;">6</span>beecommond.dll</pre></td>
+</tr>
+<tr id="line125">
+<td class="lineNum"><pre>125</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">Delete</span> <span style="color: #535300;">/REBOOTOK</span> <span style="color: #42532F;">$INSTDIR</span>\<span style="color: #FF0000;">6</span>beeclientmnghook.dll</pre></td>
+</tr>
+<tr id="line126">
+<td class="lineNum"><pre>126</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">Delete</span> <span style="color: #535300;">/REBOOTOK</span> <span style="color: #42532F;">$INSTDIR</span>\<span style="color: #FF0000;">6</span>beeclientmng.exe</pre></td>
+</tr>
+<tr id="line127">
+<td class="lineNum"><pre>127</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">Delete</span> <span style="color: #535300;">/REBOOTOK</span> <span style="color: #42532F;">$INSTDIR</span>\<span style="color: #FF0000;">6</span>beecapvideo.exe</pre></td>
+</tr>
+<tr id="line128">
+<td class="lineNum"><pre>128</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">Delete</span> <span style="color: #535300;">/REBOOTOK</span> <span style="color: #42532F;">$INSTDIR</span>\<span style="color: #FF0000;">6</span>beeaudiorec.exe</pre></td>
+</tr>
+<tr id="line129">
+<td class="lineNum"><pre>129</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">Delete</span> <span style="color: #535300;">/REBOOTOK</span> <span style="color: #42532F;">$INSTDIR</span>\uutoolbar.dll</pre></td>
+</tr>
+<tr id="line130">
+<td class="lineNum"><pre>130</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">Delete</span> <span style="color: #535300;">/REBOOTOK</span> <span style="color: #42532F;">$INSTDIR</span>\utest.exe</pre></td>
+</tr>
+<tr id="line131">
+<td class="lineNum"><pre>131</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">DeleteRegValue</span> <span style="color: #480770;">HKLM</span> <span style="color: #004242;">"</span><span style="color: #480770;">${REGKEY}</span><span style="color: #004242;">\Components"</span> Main</pre></td>
+</tr>
+<tr id="line132">
+<td class="lineNum"><pre>132</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="font-weight: bold;color: #643200;">SectionEnd</span></pre></td>
+</tr>
+<tr id="line133">
+<td class="lineNum"><pre>133</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre></pre></td>
+</tr>
+<tr id="line134">
+<td class="lineNum"><pre>134</pre></td><td class="ruler"><table cellpadding="0" cellspacing="0" border="0" class="collapse" onClick="toggle(this,135,143);" onMouseOver="showLine(this,143);" onMouseOut="hideLine();"><tr><td class="top">&nbsp;</td><td class="top right">&nbsp;</td></tr><tr><td>&nbsp;</td><td class="right">&nbsp;</td></tr></table></td><td><pre><span style="font-weight: bold;color: #643200;">Section</span> -un.post UNSEC0001</pre></td>
+</tr>
+<tr id="line135">
+<td class="lineNum"><pre>135</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">DeleteRegKey</span> <span style="color: #480770;">HKLM</span> <span style="color: #004242;">"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\</span><span style="color: #61311E;">$(^Name)</span><span style="color: #004242;">"</span></pre></td>
+</tr>
+<tr id="line136">
+<td class="lineNum"><pre>136</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">Delete</span> <span style="color: #535300;">/REBOOTOK</span> <span style="color: #004242;">"</span><span style="color: #42532F;">$SMPROGRAMS</span><span style="color: #004242;">\</span><span style="color: #42532F;">$StartMenu</span><span style="color: #004242;">Group\</span><span style="color: #61311E;">$(^UninstallLink)</span><span style="color: #004242;">.lnk"</span></pre></td>
+</tr>
+<tr id="line137">
+<td class="lineNum"><pre>137</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">Delete</span> <span style="color: #535300;">/REBOOTOK</span> <span style="color: #42532F;">$INSTDIR</span>\uninstall.exe</pre></td>
+</tr>
+<tr id="line138">
+<td class="lineNum"><pre>138</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">DeleteRegValue</span> <span style="color: #480770;">HKLM</span> <span style="color: #004242;">"</span><span style="color: #480770;">${REGKEY}</span><span style="color: #004242;">"</span> Path</pre></td>
+</tr>
+<tr id="line139">
+<td class="lineNum"><pre>139</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">DeleteRegKey</span> <span style="color: #535300;">/IfEmpty</span> <span style="color: #480770;">HKLM</span> <span style="color: #004242;">"</span><span style="color: #480770;">${REGKEY}</span><span style="color: #004242;">\Components"</span></pre></td>
+</tr>
+<tr id="line140">
+<td class="lineNum"><pre>140</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">DeleteRegKey</span> <span style="color: #535300;">/IfEmpty</span> <span style="color: #480770;">HKLM</span> <span style="color: #004242;">"</span><span style="color: #480770;">${REGKEY}</span><span style="color: #004242;">"</span></pre></td>
+</tr>
+<tr id="line141">
+<td class="lineNum"><pre>141</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">RmDir</span> <span style="color: #535300;">/REBOOTOK</span> <span style="color: #42532F;">$SMPROGRAMS</span>\<span style="color: #42532F;">$StartMenu</span>Group</pre></td>
+</tr>
+<tr id="line142">
+<td class="lineNum"><pre>142</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">RmDir</span> <span style="color: #535300;">/REBOOTOK</span> <span style="color: #42532F;">$INSTDIR</span></pre></td>
+</tr>
+<tr id="line143">
+<td class="lineNum"><pre>143</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="font-weight: bold;color: #643200;">SectionEnd</span></pre></td>
+</tr>
+<tr id="line144">
+<td class="lineNum"><pre>144</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre></pre></td>
+</tr>
+<tr id="line145">
+<td class="lineNum"><pre>145</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="font-style: italic;color: #7F9FBF;">#</span> <span style="font-style: italic;color: #7F9FBF;">Installer</span> <span style="font-style: italic;color: #7F9FBF;">functions</span></pre></td>
+</tr>
+<tr id="line146">
+<td class="lineNum"><pre>146</pre></td><td class="ruler"><table cellpadding="0" cellspacing="0" border="0" class="collapse" onClick="toggle(this,147,149);" onMouseOver="showLine(this,149);" onMouseOut="hideLine();"><tr><td class="top">&nbsp;</td><td class="top right">&nbsp;</td></tr><tr><td>&nbsp;</td><td class="right">&nbsp;</td></tr></table></td><td><pre><span style="font-weight: bold;color: #643200;">Function</span> <span style="color: #000080;">.onInit</span></pre></td>
+</tr>
+<tr id="line147">
+<td class="lineNum"><pre>147</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">InitPluginsDir</span></pre></td>
+</tr>
+<tr id="line148">
+<td class="lineNum"><pre>148</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">StrCpy</span> <span style="color: #42532F;">$StartMenu</span>Group <span style="color: #FF0000;">6</span>Beenetworks</pre></td>
+</tr>
+<tr id="line149">
+<td class="lineNum"><pre>149</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="font-weight: bold;color: #643200;">FunctionEnd</span></pre></td>
+</tr>
+<tr id="line150">
+<td class="lineNum"><pre>150</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre></pre></td>
+</tr>
+<tr id="line151">
+<td class="lineNum"><pre>151</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="font-style: italic;color: #7F9FBF;">#</span> <span style="font-style: italic;color: #7F9FBF;">Uninstaller</span> <span style="font-style: italic;color: #7F9FBF;">functions</span></pre></td>
+</tr>
+<tr id="line152">
+<td class="lineNum"><pre>152</pre></td><td class="ruler"><table cellpadding="0" cellspacing="0" border="0" class="collapse" onClick="toggle(this,153,156);" onMouseOver="showLine(this,156);" onMouseOut="hideLine();"><tr><td class="top">&nbsp;</td><td class="top right">&nbsp;</td></tr><tr><td>&nbsp;</td><td class="right">&nbsp;</td></tr></table></td><td><pre><span style="font-weight: bold;color: #643200;">Function</span> <span style="color: #000080;">un.onInit</span></pre></td>
+</tr>
+<tr id="line153">
+<td class="lineNum"><pre>153</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">ReadRegStr</span> <span style="color: #42532F;">$INSTDIR</span> <span style="color: #480770;">HKLM</span> <span style="color: #004242;">"</span><span style="color: #480770;">${REGKEY}</span><span style="color: #004242;">"</span> Path</pre></td>
+</tr>
+<tr id="line154">
+<td class="lineNum"><pre>154</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #8C0046;">StrCpy</span> <span style="color: #42532F;">$StartMenu</span>Group <span style="color: #FF0000;">6</span>Beenetworks</pre></td>
+</tr>
+<tr id="line155">
+<td class="lineNum"><pre>155</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre>    <span style="color: #FF0000;">!insertmacro</span> SELECT_UNSECTION Main <span style="color: #480770;">${UNSEC0000}</span></pre></td>
+</tr>
+<tr id="line156">
+<td class="lineNum"><pre>156</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="font-weight: bold;color: #643200;">FunctionEnd</span></pre></td>
+</tr>
+<tr id="line157">
+<td class="lineNum"><pre>157</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre></pre></td>
+</tr>
+<tr id="line158">
+<td class="lineNum"><pre>158</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="font-style: italic;color: #7F9FBF;">#</span> <span style="font-style: italic;color: #7F9FBF;">Installer</span> <span style="font-style: italic;color: #7F9FBF;">Language</span> <span style="font-style: italic;color: #7F9FBF;">Strings</span></pre></td>
+</tr>
+<tr id="line159">
+<td class="lineNum"><pre>159</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="font-style: italic;color: #7F9FBF;">#</span> <span style="font-weight: bold;color: #005050;">TODO</span> <span style="font-style: italic;color: #7F9FBF;">Update</span> <span style="font-style: italic;color: #7F9FBF;">the</span> <span style="font-style: italic;color: #7F9FBF;">Language</span> <span style="font-style: italic;color: #7F9FBF;">Strings</span> <span style="font-style: italic;color: #7F9FBF;">with</span> <span style="font-style: italic;color: #7F9FBF;">the</span> <span style="font-style: italic;color: #7F9FBF;">appropriate</span> <span style="font-style: italic;color: #7F9FBF;">translations.</span></pre></td>
+</tr>
+<tr id="line160">
+<td class="lineNum"><pre>160</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre></pre></td>
+</tr>
+<tr id="line161">
+<td class="lineNum"><pre>161</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="color: #800000;">LangString</span> ^UninstallLink <span style="color: #480770;">${LANG_ENGLISH}</span> <span style="color: #004242;">"Uninstall</span> <span style="color: #61311E;">$(^Name)</span><span style="color: #004242;">"</span></pre></td>
+</tr>
+<tr id="line162">
+<td class="lineNum"><pre>162</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre><span style="color: #800000;">LangString</span> ^UninstallLink <span style="color: #480770;">${LANG_SIMPCHINESE}</span> <span style="color: #004242;">"Uninstall</span> <span style="color: #61311E;">$(^Name)</span><span style="color: #004242;">"</span></pre></td>
+</tr>
+<tr id="line163">
+<td class="lineNum"><pre>163</pre></td><td class="ruler"><pre>&nbsp;</pre></td><td><pre></pre></td>
+</tr>
+<tr><td><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre></td><td><pre>&nbsp;&nbsp;</pre></td><td></td></tr>
+</table>
+</div>
+<div id="lineDiv"></div>
+<div style="text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;"><hr>
+Exported as HTML from EclipseNSIS (<a href="http://eclipsensis.sf.net">http://eclipsensis.sf.net</a>)<br>
+Copyright &copy; 2004-2008 Sunil Kamath (IcemanK). All rights reserved.
+</div>
+</body>
+</html>
