@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<VisualStudioPropertySheet
+	ProjectType="Visual C++"
+	Version="8.00"
+	Name="plugin_release"
+	>
+	<Tool
+		Name="VCCLCompilerTool"
+		AdditionalIncludeDirectories="&quot;$(MM_ROOT)\include&quot;;&quot;$(ICE_ROOT)\include&quot;;&quot;$(WTL_ROOT)\include&quot;;&quot;$(SQLITE_ROOT)\include&quot;;&quot;$(MP3_ROOT)\include&quot;;&quot;$(PCRECPP_ROOT)\include&quot;;&quot;$(UUINC)&quot;"
+		PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_DEPRECATE;ISOLATION_AWARE_ENABLED;_WTL_NO_WTYPES"
+		UsePrecompiledHeader="0"
+	/>
+	<Tool
+		Name="VCLinkerTool"
+		AdditionalDependencies="6beecommond.lib 6beemousehook.lib 6beebase.lib uutoolbar.lib uuplugins.lib"
+		OutputFile="$(UUOUTPUT)\$(ProjectName)\$(ConfigurationName)\$(ProjectName).uta"
+		AdditionalLibraryDirectories="&quot;$(ICE_ROOT)\lib&quot;;&quot;$(SQLITE_ROOT)\lib&quot;;&quot;$(MM_ROOT)\lib&quot;"
+	/>
+	<Tool
+		Name="VCPostBuildEventTool"
+		CommandLine="copy /Y &quot;$(OutDir)\$(TargetFileName)&quot; &quot;$(UUBIN)\$(ConfigurationName)\plugin\$(ProjectName)&quot;"
+	/>
+	<Tool
+		Name="VCPreBuildEventTool"
+		CommandLine="if not exist &quot;$(UUBIN)\$(ConfigurationName)\plugin\$(ProjectName)&quot; mkdir &quot;$(UUBIN)\$(ConfigurationName)\plugin\$(ProjectName)&quot;"
+	/>
+	<Tool
+		Name="VCResourceCompilerTool"
+		AdditionalIncludeDirectories="$(UUINC)"
+	/>
+</VisualStudioPropertySheet>

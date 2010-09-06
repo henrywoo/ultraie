@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<VisualStudioPropertySheet
+	ProjectType="Visual C++"
+	Version="8.00"
+	Name="release"
+	OutputDirectory="$(UUOUTPUT)\$(ProjectName)\$(ConfigurationName)"
+	IntermediateDirectory="$(INTERMEDIATE)\$(ProjectName)\$(ConfigurationName)"
+	DeleteExtensionsOnClean="*.obj;*.ilk;*.tlb;*.tli;*.tlh;*.tmp;*.rsp;*.pgc;*.pgd;$(TargetPath);BuildLog.htm"
+	BuildLogFile="$(IntDir)\BuildLog.htm"
+	>
+	<Tool
+		Name="VCCLCompilerTool"
+		UseUnicodeResponseFiles="true"
+		AdditionalOptions="/D &quot;_WIN32_WINNT=0x0501&quot; /D &quot;_WIN32_IE=0x0501&quot; /D &quot;WINVER=0x0500&quot;"
+		Optimization="1"
+		PreprocessorDefinitions="WIN32;_WIN32;_WINDOWS;NDEBUG;__6BEEUPLOADER__;__CHINESE__"
+		MinimalRebuild="false"
+		ExceptionHandling="1"
+		BasicRuntimeChecks="0"
+		RuntimeLibrary="2"
+		UsePrecompiledHeader="0"
+		BrowseInformation="0"
+		WarningLevel="3"
+		WarnAsError="false"
+		SuppressStartupBanner="true"
+		Detect64BitPortabilityProblems="true"
+		DebugInformationFormat="0"
+	/>
+	<Tool
+		Name="VCLinkerTool"
+		LinkIncremental="1"
+		AdditionalLibraryDirectories="&quot;$(ICE_ROOT)\lib&quot;;&quot;$(MM_ROOT)\lib&quot;;&quot;$(SQLITE_ROOT)\lib&quot;;&quot;$(PCRECPP_ROOT)\lib&quot;;&quot;$(FFMPEG_ROOT)\lib&quot;;&quot;$(UULIB)\release&quot;"
+		GenerateManifest="true"
+		GenerateDebugInformation="false"
+		TargetMachine="1"
+		AllowIsolation="true"
+	/>
+	<Tool
+		Name="VCPostBuildEventTool"
+		CommandLine="if exist &quot;$(OutDir)\$(ProjectName).exe&quot; (copy /Y &quot;$(OutDir)\$(ProjectName).exe&quot; &quot;$(UUBIN)\release&quot;)&#x0D;&#x0A;if exist &quot;$(OutDir)\$(ProjectName).dll&quot; (copy /Y &quot;$(OutDir)\$(ProjectName).dll&quot; &quot;$(UUBIN)\release&quot;)&#x0D;&#x0A;if exist &quot;$(OutDir)\$(ProjectName)_ch.dll&quot; (copy /Y &quot;$(OutDir)\$(ProjectName)_ch.dll&quot; &quot;$(UUBIN)\release&quot;)&#x0D;&#x0A;if exist &quot;$(OutDir)\$(ProjectName).lib&quot; (copy /Y &quot;$(OutDir)\$(ProjectName).lib&quot; &quot;$(UULIB)\release&quot;)&#x0D;&#x0A;"
+	/>
+	<Tool
+		Name="VCResourceCompilerTool"
+		PreprocessorDefinitions="__CHINESE__"
+	/>
+</VisualStudioPropertySheet>

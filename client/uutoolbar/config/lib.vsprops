@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<VisualStudioPropertySheet
+	ProjectType="Visual C++"
+	Version="8.00"
+	Name="lib"
+	>
+	<Tool
+		Name="VCCLCompilerTool"
+		AdditionalIncludeDirectories=".;&quot;$(ICE_ROOT)\include&quot;;&quot;$(WTL_ROOT)\include&quot;;&quot;$(SQLITE_ROOT)\include&quot;;&quot;$(PCRECPP_ROOT)\include&quot;;&quot;$(UUINC)&quot;"
+		PreprocessorDefinitions="_LIB"
+	/>
+	<Tool
+		Name="VCLibrarianTool"
+		AdditionalLibraryDirectories="&quot;$(ICE_ROOT)\lib&quot;;&quot;$(SQLITE_ROOT)\lib&quot;"
+	/>
+</VisualStudioPropertySheet>
