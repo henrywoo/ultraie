@@ -1,0 +1,36 @@
+// uufile_shellext.idl : IDL source for uufile_shellext
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (uufile_shellext.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(8D6C9747-1CA8-4988-8D40-4B78CF4F062B),
+	dual,
+	nonextensible,
+	helpstring("IUUShellExt Interface"),
+	pointer_default(unique)
+]
+interface IUUShellExt : IDispatch{
+};
+[
+	uuid(2F0ACBBE-9895-4CB3-9CF0-4B528A50D282),
+	version(1.0),
+	helpstring("uufile_shellext 1.0 Type Library")
+]
+library uufile_shellextLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(6B12D717-7E95-4C50-8631-97AB1F213F6A),
+		helpstring("UUShellExt Class")
+	]
+	coclass UUShellExt
+	{
+		[default] interface IUUShellExt;
+	};
+};

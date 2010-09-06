@@ -1,0 +1,11 @@
+HKCR
+{
+  NoRemove AppID
+  {
+    '%APPID%' = s 'My6BeeShellExt'
+    '6BeeShellExt.DLL'
+    {
+      val AppID = s '%APPID%'
+    }
+  }
+}

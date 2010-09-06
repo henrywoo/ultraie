@@ -1,0 +1,11 @@
+HKCR
+{
+	NoRemove AppID
+	{
+		'%APPID%' = s 'builtinsearch'
+		'builtinsearch.DLL'
+		{
+			val AppID = s '%APPID%'
+		}
+	}
+}

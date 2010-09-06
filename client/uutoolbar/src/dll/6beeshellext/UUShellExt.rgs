@@ -1,0 +1,26 @@
+HKCR
+{
+  My6BeeShellExt.UUShellExt.1 = s 'UUShellExt Class'
+  {
+    CLSID = s '{F33275F5-793B-46B4-892E-5CF86B5E289D}'
+  }
+  My6BeeShellExt.UUShellExt = s 'UUShellExt Class'
+  {
+    CLSID = s '{F33275F5-793B-46B4-892E-5CF86B5E289D}'
+    CurVer = s 'My6BeeShellExt.UUShellExt.1'
+  }
+  NoRemove CLSID
+  {
+    ForceRemove {F33275F5-793B-46B4-892E-5CF86B5E289D} = s 'UUShellExt Class'
+    {
+      ProgID = s 'My6BeeShellExt.UUShellExt.1'
+      VersionIndependentProgID = s 'My6BeeShellExt.UUShellExt'
+      InprocServer32 = s '%MODULE%'
+      {
+        val ThreadingModel = s 'Apartment'
+      }
+      val AppID = s '%APPID%'
+      'TypeLib' = s '{68849F1B-EC6F-484C-AF6D-35768F422412}'
+    }
+  }
+}

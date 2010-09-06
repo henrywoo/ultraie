@@ -1,0 +1,36 @@
+// uufilebho.idl : IDL source for uufilebho
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (uufilebho.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(72F1E96F-F937-4C3B-AABC-D3CCD84EAEC2),
+	dual,
+	nonextensible,
+	helpstring("Iuufilecom Interface"),
+	pointer_default(unique)
+]
+interface Iuufilecom : IDispatch{
+};
+[
+	uuid(32106A44-A2F0-4BDE-AE7E-0D68E48ED138),
+	version(1.0),
+	helpstring("uufilebho 1.0 Type Library")
+]
+library uufilebhoLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(393B9138-AC53-4E93-8E5A-7B45ECC147B4),
+		helpstring("uufilecom Class")
+	]
+	coclass uufilecom
+	{
+		[default] interface Iuufilecom;
+	};
+};

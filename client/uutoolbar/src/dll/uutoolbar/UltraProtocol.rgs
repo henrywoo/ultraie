@@ -1,0 +1,37 @@
+HKCR
+{
+  UUToolBar.UltraProtocol.1 = s 'UltraProtocol Class'
+  {
+    CLSID = s '{4D8A34F0-CD29-4314-ADBF-812B4AB06AC6}'
+  }
+  UUToolBar.UltraProtocol = s 'UltraProtocol Class'
+  {
+    CLSID = s '{4D8A34F0-CD29-4314-ADBF-812B4AB06AC6}'
+    CurVer = s 'UUToolBar.UltraProtocol.1'
+  }
+  NoRemove CLSID
+  {
+    ForceRemove {4D8A34F0-CD29-4314-ADBF-812B4AB06AC6} = s 'UltraProtocol Class'
+    {
+      ProgID = s 'UUToolBar.UltraProtocol.1'
+      VersionIndependentProgID = s 'UUToolBar.UltraProtocol'
+      ForceRemove 'Programmable'
+      InprocServer32 = s '%MODULE%'
+      {
+        val ThreadingModel = s 'Apartment'
+      }
+      val AppID = s '%APPID%'
+      'TypeLib' = s '{9B91D4F3-E5E5-4624-AC75-14E3271E6891}'
+    }
+  }
+  NoRemove PROTOCOLS
+  {
+    NoRemove Handler
+    {
+      ForceRemove ultra = s 'ultra: Asychronous Pluggable Protocol Handler for UltraIE Application'
+      {
+        val CLSID = s '{4D8A34F0-CD29-4314-ADBF-812B4AB06AC6}'
+      }
+    }
+  }
+}

@@ -1,0 +1,77 @@
+<HTML>
+<HEAD>
+<STYLE>
+BODY {
+background-color: window;
+font-family: Tahoma, Verdana, Arial;
+font-size: 8pt;
+cursor: default ;
+scrollbar-face-color:#EAEEEA;
+scrollbar-arrow-color:#FeFeFe;
+scrollbar-track-color:#EEFFEE;
+scrollbar-shadow-color:#dedede;
+scrollbar-highlight-color:#eeeeee;
+scrollbar-3dlight-color:#e3d3c3;
+scrollbar-darkshadow-Color:#2a2a2a;
+}
+TABLE {
+color: window;
+font-family: Tahoma, Verdana, Arial;
+font-size: 8pt;
+cursor: default;
+}
+IMG {
+vertical-align: middle;
+}
+DIV {
+cursor: default;
+cursor: hand;
+margin-bottom: 3px;
+}
+.ITEMSEL {
+font-weight: bold;
+color: black;
+background-color: #fefeea;
+padding-bottom: 4;
+border:1px solid #83cd42;
+}
+.ITEMNORMAL {
+background-color: window;
+padding-bottom: 4;
+}
+.INFODIV {
+font-weight: normal;
+}
+INPUT{
+cursor: hand;
+}
+</STYLE>
+</HEAD>
+<BODY SCROLL=NO topmargin=0 leftmargin=0 BOTTOMMARGIN=0 RIGHTMARGIN=0>
+<SCRIPT LANGUAGE="JScript">
+document.onreadystatechange=onReady;
+function onReady() 
+{ 
+	if(document.readyState=="complete") window.external.OnInitialize();
+}
+function DoItemExpanding(el)
+{
+	el.children(2).style.display="block";
+}
+function DoItemCollapsing(el)
+{
+	el.children(2).style.display="none";
+}
+function OnButtonClick()
+{
+	alert("Rest easy... I'm not going to do anything silly!");
+}
+document.OnItemExpanding = DoItemExpanding;
+document.OnItemCollapsing = DoItemCollapsing;
+</SCRIPT>
+<DIV ID=outer SCROLL=YES STYLE="height:100%; border: 1px solid; border-color: threedface; overflow: auto">
+<DIV ID=inner>
+</DIV>
+</DIV>
+</BODY>
+</HTML>

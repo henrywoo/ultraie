@@ -1,0 +1,64 @@
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+  object,
+  uuid(A4F676F1-8881-4587-B7D4-E939D054B2E7),
+  dual,
+  nonextensible,
+  helpstring("IToolBarCOM Interface"),
+  pointer_default(unique)
+]
+interface IToolBarCOM : IDispatch{
+};
+[
+  object,
+  uuid(F1310D6A-13B7-4C54-837C-EDCEE2AF2FE8),
+  helpstring("IUUFilter Interface"),
+  pointer_default(unique)
+]
+interface IUUFilter : IUnknown{
+};
+[
+  object,
+  uuid(1C815406-C2D4-4D28-A060-EA9BD0442723),
+  dual,
+  nonextensible,
+  helpstring("IUltraProtocol Interface"),
+  pointer_default(unique)
+]
+interface IUltraProtocol : IDispatch{
+};
+[
+  uuid(9B91D4F3-E5E5-4624-AC75-14E3271E6891),
+  version(1.0),
+  helpstring("UUToolBar 1.0 TypeLib")
+]
+library UUToolBarLib
+{
+  importlib("stdole2.tlb");
+  [
+    uuid(0E1F40A1-4D93-435A-A8C5-273FE2ECF99C),
+    helpstring("6BeeToolBar")
+  ]
+  coclass ToolBarCOM
+  {
+    [default] interface IToolBarCOM;
+  };
+  [
+    uuid(4621B910-2D7B-45AA-971C-E8CB5F890495),
+    helpstring("UUFilter")
+  ]
+  coclass UUFilter
+  {
+    [default] interface IUUFilter;
+  };
+  [
+    uuid(4D8A34F0-CD29-4314-ADBF-812B4AB06AC6),
+    helpstring("UltraProtocol Class")
+  ]
+  coclass UltraProtocol
+  {
+    [default] interface IUltraProtocol;
+  };
+};

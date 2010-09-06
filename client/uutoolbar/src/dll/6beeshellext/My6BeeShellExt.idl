@@ -1,0 +1,34 @@
+// My6BeeShellExt.idl : IDL source for 6BeeShellExt
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (My6BeeShellExt.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+  object,
+  uuid(BF8B82DB-6ECF-495F-89F0-11035A727F0D),
+  helpstring("IUUShellExt Interface"),
+  pointer_default(unique)
+]
+interface IUUShellExt : IUnknown{
+};
+[
+  uuid(68849F1B-EC6F-484C-AF6D-35768F422412),
+  version(1.0),
+  helpstring("My6BeeShellExt 1.0 Type Library")
+]
+library My6BeeShellExtLib
+{
+  importlib("stdole2.tlb");
+  [
+    uuid(F33275F5-793B-46B4-892E-5CF86B5E289D),
+    helpstring("UUShellExt Class")
+  ]
+  coclass UUShellExt
+  {
+    [default] interface IUUShellExt;
+  };
+};

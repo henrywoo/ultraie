@@ -1,0 +1,9 @@
+; 6BeeShellExt.def : Declares the module parameters.
+
+LIBRARY      "6BeeShellExt.DLL"
+
+EXPORTS
+  DllCanUnloadNow    PRIVATE
+  DllGetClassObject  PRIVATE
+  DllRegisterServer  PRIVATE
+  DllUnregisterServer  PRIVATE

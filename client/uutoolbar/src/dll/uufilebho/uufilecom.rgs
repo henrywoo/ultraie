@@ -1,0 +1,27 @@
+HKCR
+{
+	uufilebho.uufilecom.1 = s 'uufilecom Class'
+	{
+		CLSID = s '{393B9138-AC53-4E93-8E5A-7B45ECC147B4}'
+	}
+	uufilebho.uufilecom = s 'uufilecom Class'
+	{
+		CLSID = s '{393B9138-AC53-4E93-8E5A-7B45ECC147B4}'
+		CurVer = s 'uufilebho.uufilecom.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {393B9138-AC53-4E93-8E5A-7B45ECC147B4} = s 'uufilecom Class'
+		{
+			ProgID = s 'uufilebho.uufilecom.1'
+			VersionIndependentProgID = s 'uufilebho.uufilecom'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			val AppID = s '%APPID%'
+			'TypeLib' = s '{32106A44-A2F0-4BDE-AE7E-0D68E48ED138}'
+		}
+	}
+}

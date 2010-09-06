@@ -1,0 +1,52 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove  %CLSID% = s '%DESCRIPTION%'
+		{
+			val InfoTip = s '%INFOTIP%'
+			InProcServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			DefaultIcon = s '%MODULE%'  
+			ForceRemove ShellFolder
+			{
+				val Attributes = d '2684354880'
+			}
+		}
+	}
+}
+HKLM
+{
+	NoRemove Software
+	{
+		NoRemove Microsoft
+		{
+			NoRemove Windows
+			{
+				NoRemove CurrentVersion
+				{
+					NoRemove Explorer
+					{
+						NoRemove Desktop
+						{
+							NoRemove NameSpace
+							{
+								ForceRemove  %CLSID% = s '%DESCRIPTION%'
+							}
+						}
+					}
+
+					NoRemove 'Shell Extensions'
+					{
+						NoRemove Approved
+						{
+							ForceRemove val %CLSID% = s '%DESCRIPTION%'
+						}
+					}
+				}
+			}
+		}
+	}
+}
