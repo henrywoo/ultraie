@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<VisualStudioPropertySheet
+	ProjectType="Visual C++"
+	Version="8.00"
+	Name="exe"
+	>
+	<Tool
+		Name="VCCLCompilerTool"
+		AdditionalIncludeDirectories="&quot;$(MM_ROOT)\include&quot;;&quot;$(ICE_ROOT)\include&quot;;&quot;$(WTL_ROOT)\include&quot;;&quot;$(SQLITE_ROOT)\include&quot;;&quot;$(UUINC)&quot;;&quot;$(MP3_ROOT)\include&quot;;&quot;$(FFMPEG_ROOT)\include&quot;;&quot;$(PCRECPP_ROOT)\include&quot;"
+		PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;_CRT_NON_CONFORMING_SWPRINTFS;ISOLATION_AWARE_ENABLED;_WTL_NO_WTYPES;_NO_TESTING_;COMPILE_HOST"
+	/>
+	<Tool
+		Name="VCLinkerTool"
+		IgnoreImportLibrary="true"
+		LinkLibraryDependencies="false"
+		AdditionalDependencies="urlmon.lib 6beebase.lib"
+		OutputFile="$(OutDir)\$(ProjectName).exe"
+		GenerateDebugInformation="true"
+		SubSystem="2"
+		TargetMachine="1"
+	/>
+	<Tool
+		Name="VCPostBuildEventTool"
+		CommandLine="copy /Y &quot;$(OutDir)\*.exe&quot; &quot;$(UUBIN)&quot;"
+	/>
+	<Tool
+		Name="VCResourceCompilerTool"
+		AdditionalIncludeDirectories="&quot;$(WTL_ROOT)\include&quot;;$(UUINC)"
+	/>
+</VisualStudioPropertySheet>

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<VisualStudioPropertySheet
+	ProjectType="Visual C++"
+	Version="8.00"
+	Name="dll"
+	>
+	<Tool
+		Name="VCCLCompilerTool"
+		AdditionalIncludeDirectories="&quot;$(MM_ROOT)\include&quot;;&quot;$(ICE_ROOT)\include&quot;;&quot;$(WTL_ROOT)\include&quot;;&quot;$(SQLITE_ROOT)\include&quot;;&quot;$(UUINC)&quot;"
+		PreprocessorDefinitions="_USRDLL;_CRT_SECURE_NO_DEPRECATE;ISOLATION_AWARE_ENABLED;_WTL_NO_WTYPES"
+	/>
+	<Tool
+		Name="VCLinkerTool"
+		IgnoreImportLibrary="true"
+		LinkLibraryDependencies="false"
+		UseLibraryDependencyInputs="false"
+		UseUnicodeResponseFiles="true"
+		AdditionalDependencies="6beebase.lib gdiplus.lib urlmon.lib"
+		SuppressStartupBanner="true"
+		AdditionalLibraryDirectories=""
+		GenerateManifest="true"
+		ManifestFile="$(IntDir)\$(TargetFileName).intermediate.manifest"
+		SubSystem="2"
+		ImportLibrary=""
+		TargetMachine="1"
+		AllowIsolation="true"
+	/>
+	<Tool
+		Name="VCResourceCompilerTool"
+		AdditionalIncludeDirectories="$(UUINC)"
+	/>
+</VisualStudioPropertySheet>
