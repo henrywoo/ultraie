@@ -1,0 +1,27 @@
+HKCR
+{
+	uufile_shellext.UUShellExt.1 = s 'UUShellExt Class'
+	{
+		CLSID = s '{6B12D717-7E95-4C50-8631-97AB1F213F6A}'
+	}
+	uufile_shellext.UUShellExt = s 'UUShellExt Class'
+	{
+		CLSID = s '{6B12D717-7E95-4C50-8631-97AB1F213F6A}'
+		CurVer = s 'uufile_shellext.UUShellExt.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {6B12D717-7E95-4C50-8631-97AB1F213F6A} = s 'UUShellExt Class'
+		{
+			ProgID = s 'uufile_shellext.UUShellExt.1'
+			VersionIndependentProgID = s 'uufile_shellext.UUShellExt'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			val AppID = s '%APPID%'
+			'TypeLib' = s '{2F0ACBBE-9895-4CB3-9CF0-4B528A50D282}'
+		}
+	}
+}

@@ -1,0 +1,44 @@
+HKCR
+{
+	builtinsearch.horizontalbar.1 = s 'Builtin Search'
+	{
+		CLSID = s '{92268371-AE67-4B85-BF60-157E57009ECC}'
+	}
+	builtinsearch.horizontalbar = s 'Builtin Search'
+	{
+		CLSID = s '{92268371-AE67-4B85-BF60-157E57009ECC}'
+		CurVer = s 'builtinsearch.horizontalbar.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {92268371-AE67-4B85-BF60-157E57009ECC} = s 'Builtin Search'
+		{
+			ProgID = s 'builtinsearch.horizontalbar.1'
+			VersionIndependentProgID = s 'builtinsearch.horizontalbar'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			val AppID = s '%APPID%'
+			'TypeLib' = s '{0BAB1347-7DB4-4A9D-AB26-0A6884355C93}'
+		}
+	}
+}
+
+HKCU
+{
+  SOFTWARE
+  {
+    Microsoft
+    {
+      'Internet Explorer'
+      {
+        NoRemove 'Explorer Bars'
+        {
+          ForceRemove {92268371-AE67-4B85-BF60-157E57009ECC}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+LIBRARY      "UUToolBar.DLL"
+
+EXPORTS
+  DllCanUnloadNow    PRIVATE
+  DllGetClassObject  PRIVATE
+  DllRegisterServer  PRIVATE
+  DllUnregisterServer  PRIVATE
+  
+  ??0uuplugin@nsplugin@@QAE@XZ
+  ?GetC6BeeMenuStatusBarPtr@nsplugin@@YAPAVC6BeeMenuStatusBar@@XZ
+  ?GetSBSize@nsplugin@@YAHXZ
+  ?AddParser@nsplugin@@YAXPAVuuplugin@1@@Z
+  ?GetPPSB@nsplugin@@YAPAPAVC6BeeMenuStatusBar@@XZ
+  ?opennewtab@C6BeeMenuStatusBar@@QBEXPB_W_N@Z
+  ?GetHostname@C6BeeMenuStatusBar@@QAEPA_WXZ
+  ?AddToImgList@C6BeeMenuStatusBar@@QAEHPAUHBITMAP__@@K@Z
+  ?GetWebTitle@C6BeeMenuStatusBar@@QAEPA_WXZ
+  ?GetWebURL@C6BeeMenuStatusBar@@QAEPA_WXZ
+  ?InsertAdjacentHTML@C6BeeMenuStatusBar@@QAE_NPB_W0@Z
+  ?RunJs@C6BeeMenuStatusBar@@QAE_NPB_W@Z
+  ?GetElementByIDName@C6BeeMenuStatusBar@@QAEPAUIHTMLElement@@PBD@Z
+  ?GetCurrentPaneID@nsplugin@@YAHPAVuuplugin@1@@Z
+  ?GetPWB2@C6BeeMenuStatusBar@@QAEPAVc6beewb2ptr@_6bees_html@@XZ
+  

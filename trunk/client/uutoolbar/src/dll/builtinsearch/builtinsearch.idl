@@ -1,0 +1,36 @@
+// builtinsearch.idl : IDL source for builtinsearch
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (builtinsearch.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(E9DEB592-3F85-451A-AE9C-2F8135908C58),
+	dual,
+	nonextensible,
+	helpstring("Ihorizontalbar Interface"),
+	pointer_default(unique)
+]
+interface Ihorizontalbar : IDispatch{
+};
+[
+	uuid(0BAB1347-7DB4-4A9D-AB26-0A6884355C93),
+	version(1.0),
+	helpstring("builtinsearch 1.0 Type Library")
+]
+library builtinsearchLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(92268371-AE67-4B85-BF60-157E57009ECC),
+		helpstring("horizontalbar Class")
+	]
+	coclass horizontalbar
+	{
+		[default] interface Ihorizontalbar;
+	};
+};

@@ -1,0 +1,514 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (P.R.C.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+
+#ifdef __6BEEUPLOADER__
+
+ULTRA_IMGS              BITMAP                  "icons\\contextmenuicons.bmp"
+BUTTON_UPLOAD_CH        BITMAP                  "icons\\button_uploader_ch.bmp"
+
+#else //__6BEEUPLOADER__
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// PNG
+//
+
+IDR_HBAR_LOGO           PNG                     "icons\\HBarLogo.png"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+SELOGO_BKGND            BITMAP                  "icons\\Search_Logo_Baidu.bmp"
+IDB_SEARCH_BKG          BITMAP                  "icons\\Search_Button_BKG.bmp"
+IDB_SEARCH              BITMAP                  "icons\\search.bmp"
+IDB_COMBOX_RIGHT        BITMAP                  "icons\\right.bmp"
+IDB_COMBOX_CENTER       BITMAP                  "icons\\center.bmp"
+IDB_BITMAP_INFOBK       BITMAP                  "icons\\6beecapture.bmp"
+IDB_GGPR                BITMAP                  "icons\\GGPR.bmp"
+IDB_ULTRABUTTONS        BITMAP                  "icons\\Ultra_buttons.bmp"
+IDB_ULTRAIEUPLOADING    BITMAP                  "icons\\ultraie-uploading.bmp"
+IDB_ULTRAIESTATUS       BITMAP                  "icons\\ultraie-login.bmp"
+ULTRA_IMGS              BITMAP                  "icons\\contextmenuicons.bmp"
+BUTTON_UPLOAD_CH        BITMAP                  "icons\\button_uploader_ch.bmp"
+/////////////////////////////////////////////////////////////////////////////
+
+
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_PROXY               ICON                    "icons\\proxy.ico"
+IDI_IMGCAPTURE          ICON                    "icons\\icon3.ico"
+IDI_PROXY_ENABLED       ICON                    "icons\\proxy_enabled.ico"
+IDI_IS_HL               ICON                    "icons\\is_HL.ico"
+IDI_UP                  ICON                    "icons\\up.ico"
+IDI_LOGINWND            ICON                    "icons\\loginwnd.ico"
+IDI_HLIGHT              ICON                    "icons\\highlight.ico"
+IDI_DOWN                ICON                    "icons\\down.ico"
+IDI_6BEELOGO            ICON                    "icons\\6BeeTBLogo.ico"
+IDI_IMAGECAP            ICON                    "icons\\ScreenCapture.ico"
+IDI_6BEEDISABLE        ICON                    "icons\\6beelogo_disable.ico"
+IDI_HSEARCH             ICON                    "icons\\HSearch.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// HTML
+//
+/*
+IDB_DOWNLOAD            HTML                    "download.png"
+IDB_MEDIARES            HTML                    "mediaresource.png"
+IDB_FLV                 HTML                    "flv.gif"
+IDB_SWF                 HTML                    "swf.gif"
+IDB_RM                  HTML                    "rm.gif"
+IDB_WM                  HTML                    "wm.gif"
+ */
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_IMG_CAPTURE DIALOGEX 0, 0, 372, 150
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CENTER | WS_MAXIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Image Capture"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Save",IDC_SAVE,296,120,45,14,BS_FLAT
+    PUSHBUTTON      "Upload Now",IDC_UPLOAD_NOW,227,120,51,14,BS_FLAT
+    LTEXT           "Give it a name:",IDC_STATIC,151,10,49,8
+    EDITTEXT        IDC_WEBCONTENTSNAME,151,20,173,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_WEBCONTENTSNAME2,151,20,211,13,ES_AUTOHSCROLL
+    LTEXT           "Add a Description:",IDC_STATIC,151,65,59,8
+    EDITTEXT        IDC_WEBCONTENTSDESC,151,75,214,36,ES_MULTILINE | ES_AUTOVSCROLL | ES_WANTRETURN | WS_VSCROLL
+    COMBOBOX        IDC_EXT,328,20,37,92,CBS_DROPDOWN | CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "",IDC_DESC_SUGG,212,64,10,10
+    PUSHBUTTON      "Preview",IDC_IMGPREVIEW,7,119,62,15,BS_FLAT
+    CONTROL         "",IDC_WEBCONTENTS_THUMBNAIL,"Static",SS_GRAYFRAME | SS_CENTERIMAGE,7,20,121,84
+    LTEXT           "Thumbnail",IDC_STATIC,7,9,33,8
+    LTEXT           "Tag it so you or others can find it(seperate tags with a comma):",IDC_STATIC,151,37,209,8
+    EDITTEXT        IDC_WEBCONTENTSTAG,151,47,214,13,ES_AUTOHSCROLL
+    PUSHBUTTON      "",IDC_TAG_SUGG,355,36,10,10
+    LTEXT           "",IDC_STATIC_VER,140,7,1,135,0,WS_EX_STATICEDGE
+    CONTROL         "",IDC_PROGRESS,"msctls_progress32",0x0,7,106,121,11
+END
+
+IDD_TIPWND DIALOGEX 0, 0, 229, 145
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "X",IDOK,210,3,12,10,BS_FLAT
+    GROUPBOX        "Media resource found:",IDC_STATIC,7,15,212,123
+    CONTROL         "",IDC_MEDIALIST,"{8856F961-340A-11D0-A96B-00C04FD705A2}",0x0,15,27,197,104
+END
+
+IDD_ABOUT6BEEUPLOADER DIALOGEX 0, 0, 153, 84
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About UltraIE UpLoader"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,94,60,50,14
+    CTEXT           "UltraIE UpLoader - an uploader tool to your UltraIE web space.\n\nultraIE.com 2008",IDC_STATIC,34,13,103,38,0,WS_EX_RIGHT
+    ICON            IDI_6BEELOGO,IDI_6BEELOGO,7,7,20,20
+END
+
+IDD_ONLINEBOOKMARK DIALOGEX 0, 0, 364, 162
+STYLE DS_ABSALIGN | DS_SETFONT | DS_FIXEDSYS | DS_CENTER | WS_MAXIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_TOPMOST | WS_EX_APPWINDOW
+CAPTION "Add A Favorite to UltraIE Online Bookmark"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Name:",IDC_STATIC,145,13,37,8
+    EDITTEXT        IDC_OLBM_NAME,146,23,211,12,ES_AUTOHSCROLL
+    LTEXT           "URL:",IDC_STATIC,145,38,59,8
+    EDITTEXT        IDC_OLBM_URL,146,47,211,12,ES_AUTOHSCROLL
+    LTEXT           "Tag it so you or others can find it(seperate tags with a comma):",IDC_STATIC,145,64,209,8
+    EDITTEXT        IDC_OLBM_TAG,146,74,211,12,ES_AUTOHSCROLL
+    LTEXT           "Description:",IDC_STATIC,145,89,39,8
+    EDITTEXT        IDC_OLBM_DESC,146,99,211,44,ES_MULTILINE | ES_AUTOVSCROLL | ES_WANTRETURN | WS_VSCROLL | WS_GROUP
+    PUSHBUTTON      "",IDC_TAG_SUGG,349,62,11,11
+    PUSHBUTTON      "",IDC_DESC_SUGG,186,88,11,11
+    PUSHBUTTON      "Save",IDC_OLBM_SAVE,65,124,51,14
+    CONTROL         "",IDC_OLBM_THUMBNAIL,"Static",SS_GRAYFRAME | SS_CENTERIMAGE,7,24,121,84
+    LTEXT           "Thumbnail",IDC_THUMBNAIL_TEXT,7,13,33,8
+    LTEXT           "",IDC_SEPERATOR,6,114,125,1,0,WS_EX_STATICEDGE
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_IMG_CAPTURE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 365
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 143
+    END
+
+    IDD_TIPWND, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 222
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 138
+    END
+
+    IDD_ABOUT6BEEUPLOADER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 146
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 77
+    END
+
+    IDD_ONLINEBOOKMARK, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 357
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 151
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_TIPWND DLGINIT
+BEGIN
+    IDC_MEDIALIST, 0x376, 160, 0
+0x0000, 0x0000, 0x004c, 0x0000, 0x1e98, 0x0000, 0x1177, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x004c, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0001, 
+0x0000, 0xd0e0, 0x0057, 0x3573, 0x11cf, 0x69ae, 0x0008, 0x2e2b, 0x6212, 
+0x0003, 0x0000, 0x0000, 0x0000, 0x004c, 0x0000, 0x1401, 0x0002, 0x0000, 
+0x0000, 0x00c0, 0x0000, 0x0000, 0x4600, 0x0080, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0001, 0x0000, 
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+IDC_CURSOR_SEARCH_WINDOW CURSOR                  "icons\\searchw.cur"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_TOOLBARMENU MENU 
+BEGIN
+    POPUP "X"
+    BEGIN
+        MENUITEM "My UltraIE Space",            ID_X_MY_6BEE_SPACE
+        MENUITEM "Configurations",              ID_X_CONFIG
+        MENUITEM SEPARATOR
+        MENUITEM "Check Updates",               ID_X_UPDATE_TOOLBAR
+        MENUITEM "Uninstall ToolBar",           ID_X_UNINSTALL_TOOLBAR
+        MENUITEM SEPARATOR
+        MENUITEM "About ...",                   ID_ABOUT_6BEE_TOOLBAR
+    END
+    MENUITEM "Y",                           ID_Y
+    POPUP "Z"
+    BEGIN
+        MENUITEM "Entire Web Page Capture",     ID_Z_WHOLEWEBPAGECAPTURE
+        MENUITEM "Web Element Capture",         ID_Z_WEBELEMENTSCAPTURE
+        MENUITEM SEPARATOR
+        MENUITEM "Screen Area Capture",         ID_Z_AREACAP
+        MENUITEM "Window Capture",              ID_Z_WINDOWCAP
+        MENUITEM SEPARATOR
+        MENUITEM "Image Capture Setting",       ID_Z_CAPTURESETTING
+    END
+    POPUP "M"
+    BEGIN
+        MENUITEM "Save Entire Web Page",        ID_M_SAVEENTIREWEBPAGE
+        MENUITEM "Save Web Element",            ID_M_SAVEWEBELEMENTASHTML
+        MENUITEM "Save Selected Text and Images", ID_M_SAVESELECTEDTEXTANDIMAGES
+    END
+    POPUP "O"
+    BEGIN
+        MENUITEM "Add to OnlineBookmark",       ID_O_SAVETHISPAGE
+        MENUITEM SEPARATOR
+        MENUITEM "Upload IE Favorite",          ID_O_SYNCHRONIZE_UP
+        MENUITEM "Download OnlineBookmark",     ID_O_SYNCHRONIZE_DOWN
+        MENUITEM SEPARATOR
+        MENUITEM "Manage OnlineBookmark",       ID_O_MANAGEOLBM
+    END
+END
+
+IDR_SEARCHMENU MENU 
+BEGIN
+    POPUP "X"
+    BEGIN
+        MENUITEM "Google",                      ID_SE_GG
+        MENUITEM "Baidu",                       ID_SE_BAIDU
+        MENUITEM "Yahoo",                       ID_SE_YAHOO
+        MENUITEM SEPARATOR
+        MENUITEM "Clear History",        ID_SE_CLEAR
+    END
+END
+
+IDR_MAINFRAME MENU 
+BEGIN
+    POPUP "W"
+    BEGIN
+        MENUITEM "About",                       ID_W_ABOUT
+        MENUITEM "Check for update",            ID_W_CHECKUPDATE
+        MENUITEM "Customize ...",               ID_W_CUSTOMIZE
+    END
+END
+
+IDR_HBAR MENU 
+BEGIN
+    POPUP "AA"
+    BEGIN
+        MENUITEM "Setting",                     ID_AA_SETTING
+    END
+END
+
+IDR_SBar MENU 
+BEGIN
+    POPUP "SETTING"
+    BEGIN
+        MENUITEM SEPARATOR
+        MENUITEM "Check Updates",               ID_SETTING_CHECKUPDATES
+        MENUITEM "Setting",                     ID_SETTING_SETTING
+        MENUITEM "About",                       ID_SETTING_ABOUT
+    END
+    POPUP "MEDIA"
+    BEGIN
+        MENUITEM "Meida Hisrory",               ID_MEDIA_HISTORY
+        MENUITEM SEPARATOR
+        MENUITEM "FLV",                         ID_MEDIA_FLV
+        MENUITEM "SWF",                         ID_MEDIA_SWF
+        MENUITEM "RM/RMVB",                     ID_MEDIA_RM
+        MENUITEM "MP3/MP4",                     ID_MEDIA_MP3
+        MENUITEM "WMV",                         ID_MEDIA_WMV
+        MENUITEM "WMA",                         ID_MEDIA_WMA
+        MENUITEM "AVI",                         ID_MEDIA_AVI
+        MENUITEM SEPARATOR
+        MENUITEM "Help",                        ID_MEDIA_HELP
+    END
+    POPUP "ANTIVIRUS"
+    BEGIN
+        MENUITEM "Mornitor New Process",        ID_ANTIVIRUS_MORNITORPROCESS
+        MENUITEM "Mornitor Registry",           ID_ANTIVIRUS_MORNITORREGISTRY
+        MENUITEM "Mornitor Homepage",           ID_ANTIVIRUS_MORNITORHOMEPAGE
+        MENUITEM "Mornitor Startup Setting",    ID_ANTIVIRUS_MORNITORSTARTUPSETTING
+        MENUITEM SEPARATOR
+        MENUITEM "Setting",                     ID_ANTIVIRUS_SETTING
+    END
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+BUTTON_ClientMng        BITMAP                  "icons\\button_ClientMng.bmp"
+BUTTON_CLNMNG_CH        BITMAP                  "icons\\button_ClientMng_ch.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_6BEEUPLOADER        ICON                    "icons\\6BeeUploader.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+#ifdef __6BEEUPLOADER__
+IDR_CLIENTMNGMENU MENU 
+BEGIN
+    POPUP "A"
+    BEGIN
+        MENUITEM "我的悠悠地盘",                      ID_A_MY6BEESPACE
+        MENUITEM SEPARATOR
+        MENUITEM "上传文件",                        ID_A_UPLOADFILES
+        MENUITEM SEPARATOR
+        MENUITEM "自动登录",                        ID_A_AUTOLOGIN
+        MENUITEM SEPARATOR
+        MENUITEM "登陆6BEE",                    ID_A_LOGINOUT
+        MENUITEM "退出程序",                        ID_A_EXIT
+    END
+END
+#else
+IDR_CLIENTMNGMENU MENU 
+BEGIN
+    POPUP "A"
+    BEGIN
+        MENUITEM "My UltraIE Space",            ID_A_MY6BEESPACE
+        MENUITEM SEPARATOR
+        MENUITEM "Upload Files",                ID_A_UPLOADFILES
+        MENUITEM SEPARATOR
+        MENUITEM "Auto Login",                  ID_A_AUTOLOGIN
+        MENUITEM SEPARATOR
+        MENUITEM "Login",                       ID_A_LOGINOUT
+        MENUITEM "Exit",                        ID_A_EXIT
+    END
+END
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_S5                  BITMAP                  "icons\\s-5.bmp"
+IDB_S1                  BITMAP                  "icons\\s-1.bmp"
+IDB_S2                  BITMAP                  "icons\\s-2.bmp"
+IDB_S3                  BITMAP                  "icons\\s-3.bmp"
+IDB_S4                  BITMAP                  "icons\\s-4.bmp"
+IDB_TBSEP               BITMAP                  "icons\\TBsep.bmp"
+IDB_CLOSE               BITMAP                  "icons\\Close.bmp"
+IDB_SEARCHMENU          BITMAP                  "icons\\searchmenu.bmp"
+IDB_STATUSBARIMG        BITMAP                  "icons\\StatusBarImage.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ULTRAICON           ICON                    "icons\\UltraIETBLogo.ico"
+IDI_FAVEDIT             ICON                    "icons\\Favorite-Edit.ico"
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,126
+ PRODUCTVERSION 1,0,0,0
+ FILEFLAGSMASK 0x17L
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "FileDescription", "6Bee Resources"
+            VALUE "InternalName", "6beeres.exe"
+            VALUE "OriginalFilename", "6beeres.dll"
+            VALUE "CompanyName", "6BeeNetworks Pte. Ltd."
+            VALUE "FileVersion", "1.0.0.126"
+            VALUE "LegalCopyright", "2009 (c) 6BeeNetworks Pte. Ltd.  All rights reserved."
+            VALUE "ProductName", "UltraIE"
+            VALUE "ProductVersion", "1.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_6Bee                "6BeeNetworks"
+    IDS_CN_STATUSBAR_SETTING "UltraIE总设置"
+END
+
+#endif //__6BEEUPLOADER__
+
+#endif    // Chinese (P.R.C.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

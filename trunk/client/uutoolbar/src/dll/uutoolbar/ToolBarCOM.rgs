@@ -1,0 +1,27 @@
+HKCR
+{
+  UUToolBar.ToolBarCOM.1 = s 'UltraIE(6BeeToolBar)'
+  {
+    CLSID = s '{0E1F40A1-4D93-435A-A8C5-273FE2ECF99C}'
+  }
+  UUToolBar.ToolBarCOM = s 'UltraIE(6BeeToolBar)'
+  {
+    CLSID = s '{0E1F40A1-4D93-435A-A8C5-273FE2ECF99C}'
+    CurVer = s 'UUToolBar.ToolBarCOM.1'
+  }
+  NoRemove CLSID
+  {
+    ForceRemove {0E1F40A1-4D93-435A-A8C5-273FE2ECF99C} = s 'UltraIE(6BeeToolBar)'
+    {
+      ProgID = s 'UUToolBar.ToolBarCOM.1'
+      VersionIndependentProgID = s 'UUToolBar.ToolBarCOM'
+      ForceRemove 'Programmable'
+      InprocServer32 = s '%MODULE%'
+      {
+        val ThreadingModel = s 'Apartment'
+      }
+      val AppID = s '%APPID%'
+      'TypeLib' = s '{9B91D4F3-E5E5-4624-AC75-14E3271E6891}'
+    }
+  }
+}

@@ -1,0 +1,44 @@
+HKCR
+{
+  UUToolBar.HorizontalBar.1 = s '6Bee Search Bar'
+  {
+    CLSID = s '{E49390B8-6712-4DA2-A6F5-687F44617A34}'
+  }
+  UUToolBar.HorizontalBar = s '6Bee Search Bar'
+  {
+    CLSID = s '{E49390B8-6712-4DA2-A6F5-687F44617A34}'
+    CurVer = s 'UUToolBar.HorizontalBar.1'
+  }
+  NoRemove CLSID
+  {
+    ForceRemove {E49390B8-6712-4DA2-A6F5-687F44617A34} = s '6Bee Search Bar'
+    {
+      ProgID = s 'UUToolBar.HorizontalBar.1'
+      VersionIndependentProgID = s 'UUToolBar.HorizontalBar'
+      ForceRemove 'Programmable'
+      InprocServer32 = s '%MODULE%'
+      {
+        val ThreadingModel = s 'Apartment'
+      }
+      val AppID = s '%APPID%'
+      'TypeLib' = s '{9B91D4F3-E5E5-4624-AC75-14E3271E6891}'
+    }
+  }
+}
+
+HKCU
+{
+  SOFTWARE
+  {
+    Microsoft
+    {
+      'Internet Explorer'
+      {
+        NoRemove 'Explorer Bars'
+        {
+          ForceRemove {E49390B8-6712-4DA2-A6F5-687F44617A34}
+        }
+      }
+    }
+  }
+}

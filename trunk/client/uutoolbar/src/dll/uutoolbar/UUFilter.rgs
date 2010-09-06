@@ -1,0 +1,49 @@
+HKCR
+{
+  UUToolBar.UUFilter.1 = s 'UUFilter'
+  {
+    CLSID = s '{4621B910-2D7B-45AA-971C-E8CB5F890495}'
+  }
+  UUToolBar.UUFilter = s 'UUFilter'
+  {
+    CLSID = s '{4621B910-2D7B-45AA-971C-E8CB5F890495}'
+    CurVer = s 'UUToolBar.UUFilter.1'
+  }
+  NoRemove CLSID
+  {
+    ForceRemove {4621B910-2D7B-45AA-971C-E8CB5F890495} = s 'UUFilter'
+    {
+      ProgID = s 'UUToolBar.UUFilter.1'
+      VersionIndependentProgID = s 'UUToolBar.UUFilter'
+      InprocServer32 = s '%MODULE%'
+      {
+        val ThreadingModel = s 'Apartment'
+      }
+      val AppID = s '%APPID%'
+      'TypeLib' = s '{9B91D4F3-E5E5-4624-AC75-14E3271E6891}'
+    }
+  }
+}
+
+HKLM
+{
+  SOFTWARE
+  {
+    Microsoft
+    {
+      Windows
+      {
+        CurrentVersion
+        {
+          explorer
+          {
+            NoRemove 'Browser Helper Objects'
+            {
+              ForceRemove {4621B910-2D7B-45AA-971C-E8CB5F890495}  = s 'UUFilter'
+            }
+          }
+        }
+      }
+    }
+  }
+}
