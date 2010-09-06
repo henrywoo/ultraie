@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>UltrIE Configuration Center</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="shortcut icon" href="ultra://favico.ico" type="image/x-icon" />
+		<link rel="stylesheet" type="text/css" href="ultra://base.css" />
+		<script type="text/javascript" src="ultra://config_mediadetection.js"></script>
+		<script type="text/javascript" src="ultra://config_httpproxy.js"></script>
+		<script type="text/javascript" src="ultra://config_surfhistory.js"></script>
+		<script type="text/javascript" src="ultra://config_adsfilter.js"></script>
+		<script type="text/javascript" src="ultra://config_antivirus.js"></script>
+	</head>
+
+
+	<style type="text/css">
+		#sidebar{position:fixed;top:10px;left:20px;height:100%;width:200px;background:white url('ultra://bg_sidebar.png') top right repeat-y;}
+		#topborder{position:fixed;top:0;left:0;width:100%;height:10px;background-color:#c0dB5A;}
+		#content{
+			margin: 123px 10% 0px 315px;
+			background:white url('http://home.sgchinese.com/templates/sg/images/bg.gif') top right;
+		}
+		#bottombar{
+			position:fixed;top:0px;left:220px;width:100%;height:00px;
+		}
+		#border2{top:0;left:0;width:100%;height:10px;background-color:#c0dB5A;}
+	</style>
+
+	<script language=javascript>
+
+	function confirm_mediadetection()
+	{
+		var actionscript = "ultra://Setting@MediaDetection|confirm=";
+		var flv = (form_mediadetection.flv.checked==1) ? 1 : 0;
+		var swf = (form_mediadetection.swf.checked==1) ? 1 : 0;
+		var rm  = (form_mediadetection.rm.checked ==1) ? 1 : 0;
+		var wmv = (form_mediadetection.wmv.checked==1) ? 1 : 0;
+		var wma = (form_mediadetection.wma.checked==1) ? 1 : 0;
+		var avi = (form_mediadetection.avi.checked==1) ? 1 : 0;
+		var mp3 = (form_mediadetection.mp3.checked==1) ? 1 : 0;
+		if (flv==1) { actionscript += "flv:"; }
+		if (mp3==1) { actionscript += "mp3:"; }
+		if (avi==1) { actionscript += "avi:"; }
+		if (wma==1) { actionscript += "wma:"; }
+		if (wmv==1) { actionscript += "wmv:"; }
+		if (rm==1 ) { actionscript += "rm:";  }
+		if (swf==1) { actionscript += "swf:"; }
+		//alert(actionscript);
+		document.form_mediadetection.action=actionscript;
+		document.form_mediadetection.submit();
+	}
+
+	function confirm_httpproxy()
+	{
+		var actionscript = "ultra://Setting@Proxy|confirm=";
+		var ip   = document.getElementById('http_ip');
+		var port = document.getElementById('http_port');
+		actionscript += ip.value + ":" + port.value;
+		if(form.chkbox.checked==1){
+			actionscript += ":1";
+		}else{
+			actionscript += ":0";
+		}
+		//alert(actionscript);
+		document.form.action=actionscript;
+		document.form.submit();
+	}
+
+	function confirm_antivirus()
+	{
+		var actionscript = "ultra://Setting@AntiVirus|confirm=";
+		document.form.action=actionscript;
+		document.form.submit();
+	}
+	function config(){
+		var url=location.href;
+		var tmp = url.substr(16,14);
+		if(tmp=='MediaDetection'){
+			MediaDetection('config_content_id');
+		}
+
+		tmp = url.substr(16,5);
+		if(tmp=='Proxy'){
+			HTTPProxy('config_content_id');
+		}
+		//alert(tmp);
+	}
+	</script>
+
+	<body onload="config()">
+		<div id="topborder"></div>
+		<div id="sidebar">
+			<br>
+			<h1>UltraIE</h1>
+			<h4>Configuration Center</h4>
+			<!--ul id="nav">
+				<!-- Media Detection -- >
+				<div>
+					<img src="ultra://page_startup.png">
+					<a href="#" onclick='MediaDetection("config_content_id")'>Meida Detection</a>
+				</div>
+
+				<!-- Proxy -- >
+				<div>
+					<img src="ultra://page_startup.png">
+					<a href="#" onclick='HTTPProxy("config_content_id")'>HTTP Proxy</a>
+				</div>
+
+				<!-- Surf History -- >
+				<div>
+					<img src="ultra://page_startup.png">
+					<a href="#" onclick='SurfHistory("config_content_id")'>Surf History</a>
+				</div>
+
+				<!-- Ads Filter -- >
+				<div>
+					<img src="ultra://page_startup.png">
+					<a href="#" onclick='AdsFilter("config_content_id")'>Ads Filter</a>
+				</div>
+
+				<!-- Anti Virus -- >
+				<div>
+					<img src="ultra://page_startup.png">
+					<a href="#" onclick='AntiVirus("config_content_id")'>Anti Virus</a>
+				</div>
+
+			</ul-->
+
+			<p><a href="http://www.ultraIE.com" style="color: #666;">v1.0.0 01/10/2008</a></p>
+
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+		</div>
+
+		<div id="content">
+			<div id="setting">
+				<div>
+					<div id="config_content_id" name="config_content_name"><h3>Under Construction</h3></div>
+				</div>
+			</div>
+		</div>
+		<div id="bottombar">
+			<div id="border2"></div>
+			<div style="margin:5px 0 0 250px;">
+				<img src='ultra://error.png' style="margin:0 20px;">
+				<!--img src='ultra://button_confirm.gif' style="margin:0 20px;">
+				<img src='ultra://button_confirm.gif' style="margin:0 20px;">
+				<img src='ultra://button_confirm.gif' style="margin:0 20px;">
+				<img src='ultra://button_confirm.gif' style="margin:0 20px;"-->
+			</div>
+		</div>
+	</body>
+</html>

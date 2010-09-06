@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Proxy Setting</title>
+<link rel="stylesheet" type="text/css" href="ultra://base.css" />
+<script language=javascript>
+function send()
+{
+	var actionscript = "ultra://Setting@Proxy|confirm=";
+	var ip   = document.getElementById('http_ip');
+	var port = document.getElementById('http_port');
+	actionscript += ip.value + ":" + port.value;
+	if(form.chkbox.checked==1){
+		actionscript += ":1";
+	}else{
+		actionscript += ":0";
+	}
+	//alert(actionscript);
+	document.form.action=actionscript;
+	document.form.submit();
+}
+</script>
+
+	</head>
+	<body>
+		<br>
+		<center>
+			<h2>Proxy Setting</h2>
+			<form name="form" method="post">
+				<!-- http_ip_port -->
+				<!--
+				IP:<input type=text id='http_ip' name='http_ip' value='169.229.50.14' size=20>
+				Port:<input type=text id='http_port' name='http_port' value='3124' size=4>
+				<br>
+				Enable Proxy: <INPUT TYPE=checkbox CHECKED ID=chk1 name=chkbox>
+				-->
+				<br>
+				<input type="button" value="Confirm" onClick=send()>
+			</form>
+		</center>
+	</body>
+</html>
