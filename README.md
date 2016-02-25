@@ -1,5 +1,7 @@
 #Introduction of UltraIE - Browse more convenient and smarter
 
+![](ultraie.jpg)
+
 ##1. Overview
 
 UltraIE helps people to fetch, save and share internet resources in a more convenient and smarter way. It is also supposed to provide online storage function.
